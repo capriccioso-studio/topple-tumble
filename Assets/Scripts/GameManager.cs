@@ -4,10 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
+    public GUIManager gui = null;
     private GameDatabase gameDB = null;
     void Awake()
     {
         gameDB = GetComponent<GameDatabase>();
+        gui = GetComponent<GUIManager>();
+        Global.gameManager = this;
 
         SceneManager.LoadScene("Splash", LoadSceneMode.Additive);
         StartCoroutine(LoadingScreen());
@@ -44,4 +47,16 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("GameScene", LoadSceneMode.Additive);
 
     }
+
+    public void ResetScene()
+    {
+        SceneManager.UnloadSceneAsync("GameScene");
+        SceneManager.LoadScene("GameScene", LoadSceneMode.Additive);
+    }
+
+    public void Die()
+    {
+        gui.ChangeGUI(11);
+    }
 }
+

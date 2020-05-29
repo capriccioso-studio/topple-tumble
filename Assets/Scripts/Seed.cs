@@ -8,6 +8,8 @@ public class Seed : MonoBehaviour
     private Rigidbody2D rb2d;
     private SpriteRenderer spriteRenderer;
     private PolygonCollider2D polycol2D;
+    private bool isTouchingPlatform = false, isDead = false;
+    private float deathCount = 0;
     void Start()
     {
         seed = Global.seedtype;
@@ -26,9 +28,48 @@ public class Seed : MonoBehaviour
         Global.seed = this.gameObject;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void OnCollisionStay2D(Collision2D other) {
+        if(other.gameObject.CompareTag("Platform"))
+        {
+            Global.score = (int)Mathf.Floor(transform.position.y);
+            isTouchingPlatform = true;
+        }
     }
+
+    /// <summary>
+    /// This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void FixedUpdate()
+    {
+        if(!isTouchingPlatform)
+        {
+            deathCount += Time.deltaTime;
+        }
+        else 
+        {
+            deathCount = 0;
+        }
+        
+        if(deathCount > 3 && !isDead)
+        {
+            isDead = true;
+            Global.gameManager.Die();
+
+        }
+    }
+
+    /// <summary>
+    /// Sent when a collider on another object stops touching this
+    /// object's collider (2D physics only).
+    /// </summary>
+    /// <param name="other">The Collision2D data associated with this collision.</param>
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Platform"))
+        {
+            isTouchingPlatform = false;
+        }
+    }
+
+
 }

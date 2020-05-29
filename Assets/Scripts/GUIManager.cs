@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GUIManager : MonoBehaviour
 {
     [Header("GUI Panels")]
     public GameObject[] guiPanels;
+
+
+    [Header("Result")]
+    public Text txt_resultScore;
     void Start()
     {
-
         ChangeGUI((int)GUISTATE.mainmenu);
     }
 
@@ -59,6 +63,8 @@ public class GUIManager : MonoBehaviour
     {
         ResetGUI();
         guiPanels[(int)Global.guiState].SetActive(true);
+        Time.timeScale = 1;        
+
     }
     public void MainMenuGUI()
     {
@@ -87,7 +93,8 @@ public class GUIManager : MonoBehaviour
     }
     public void PauseGUI()
     {
-        
+        guiPanels[(int)Global.guiState].SetActive(true);
+        Time.timeScale = 0;        
     }
     public void InventoryGUI()
     {
@@ -99,12 +106,33 @@ public class GUIManager : MonoBehaviour
     }
     public void ResultsGUI()
     {
-        
+        guiPanels[(int)Global.guiState].SetActive(true);
+        StartCoroutine(Counter(5, 0, Global.score, txt_resultScore));
+        print(Global.score);
     }
     public void LoadingGUI()
     {
 
     }
+
+
+
+    public IEnumerator Counter(float dur, int min, int max, Text text)
+    {
+        float rate = (max - min) / (dur * 10);
+        float timer = 0;
+        float progress = min;
+        while(timer < dur &&  Mathf.Ceil(progress) < max)
+        {
+            progress+=rate;
+            timer+=0.01f;
+            text.text = Mathf.Ceil(progress) + "";
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+
+
+
 
     
     
