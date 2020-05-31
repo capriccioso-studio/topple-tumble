@@ -13,6 +13,7 @@ public enum GUISTATE
   confirmationdialog = 10,
   results = 11,
   loading = 12,
+  reviveprompt = 13,
 }
 
 public enum ENVIRONMENT
@@ -29,4 +30,9 @@ public enum SEEDTYPE
 public enum PLATFORMTYPE
 {
   basic,
+}
+
+public enum ADREWARDTYPE
+{
+  revive,
 }

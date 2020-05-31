@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GUIManager gui = null;
+    public AdManager ads = null;
     private GameDatabase gameDB = null;
     void Awake()
     {
         gameDB = GetComponent<GameDatabase>();
         gui = GetComponent<GUIManager>();
+        ads = GetComponent<AdManager>();
         Global.gameManager = this;
 
         SceneManager.LoadScene("Splash", LoadSceneMode.Additive);
@@ -56,7 +58,18 @@ public class GameManager : MonoBehaviour
 
     public void Die()
     {
-        gui.ChangeGUI(11);
+        if(Global.seed.GetComponent<Seed>().hasDied)
+            gui.ChangeGUI(11);
+        else
+            gui.ChangeGUI(13);
+    }
+
+    public void Revive()
+    {
+        gui.ChangeGUI(0);
+
+        Global.seed.GetComponent<Seed>().Revive();
+        Global.platform.GetComponent<Platform>().Revive();
     }
 }
 

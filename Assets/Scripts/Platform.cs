@@ -15,7 +15,7 @@ public class Platform : MonoBehaviour
 
     void Start()
     {
-
+        Global.platform = gameObject;
         platform = Global.platformtype;
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -93,5 +93,26 @@ public class Platform : MonoBehaviour
     {
         isRightBoosting = false;
 
+    }
+
+    public void Revive()
+    {
+        transform.position = new Vector3(0, Global.score-0.07f, 0);
+        rb2d.gravityScale = 0;
+        transform.localEulerAngles = new Vector3(0,0,0);
+        StartCoroutine(ReviveFloat(5.0f));
+    }
+
+    public IEnumerator ReviveFloat(float duration)
+    {
+        float normalizedTime = 0;
+        while(rb2d.gravityScale < platform.gravityScale * 0.15f)
+        {
+            normalizedTime += Time.deltaTime / duration;
+            rb2d.gravityScale += 0.005f;
+
+            yield return null;
+        }
+        
     }
 }

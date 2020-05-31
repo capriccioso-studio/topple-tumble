@@ -11,6 +11,9 @@ public class GUIManager : MonoBehaviour
 
     [Header("Result")]
     public Text txt_resultScore;
+
+    [Header("Revive")]
+    public Button btn_WatchAdToRevive;
     void Start()
     {
         ChangeGUI((int)GUISTATE.mainmenu);
@@ -47,11 +50,13 @@ public class GUIManager : MonoBehaviour
                 ResultsGUI(); break;
             case GUISTATE.loading:
                 LoadingGUI(); break;
+            case GUISTATE.reviveprompt:
+                RevivePromptGUI(); break;
         }
 
     }
 
-    public void ResetGUI()
+    private void ResetGUI()
     {
         foreach(GameObject panel in guiPanels)
         {
@@ -59,74 +64,83 @@ public class GUIManager : MonoBehaviour
                 panel.SetActive(false);
         }
     }
-    public void StartGameGUI()
+    private void StartGameGUI()
     {
         ResetGUI();
         guiPanels[(int)Global.guiState].SetActive(true);
         Time.timeScale = 1;        
 
     }
-    public void MainMenuGUI()
+    private void MainMenuGUI()
     {
         ResetGUI();
         guiPanels[(int)Global.guiState].SetActive(true);
     }
-    public void ShopGUI()
+    private void ShopGUI()
     {
         guiPanels[(int)Global.guiState].SetActive(true);
     }
-    public void AchievementsGUI()
+    private void AchievementsGUI()
     {
         
     }
-    public void AchievementPanelGUI()
+    private void AchievementPanelGUI()
     {
         
     }
-    public void SettingsGUI()
+    private void SettingsGUI()
     {
         
     }
-    public void SettingsAboutGUI()
+    private void SettingsAboutGUI()
     {
         
     }
-    public void PauseGUI()
+    private void PauseGUI()
     {
+        ResetGUI();
         guiPanels[(int)Global.guiState].SetActive(true);
         Time.timeScale = 0;        
     }
-    public void InventoryGUI()
+    private void InventoryGUI()
     {
         
     }
-    public void ConfirmationDialogGUI()
+    private void ConfirmationDialogGUI()
     {
         
     }
-    public void ResultsGUI()
+    private void ResultsGUI()
     {
+        ResetGUI();
         guiPanels[(int)Global.guiState].SetActive(true);
         StartCoroutine(Counter(5, 0, Global.score, txt_resultScore));
-        print(Global.score);
     }
-    public void LoadingGUI()
+    private void LoadingGUI()
     {
 
     }
 
+    private void RevivePromptGUI()
+    {
+        btn_WatchAdToRevive.interactable = false;
+        guiPanels[(int)Global.guiState].SetActive(true);
+        Global.adManager.LoadAD(btn_WatchAdToRevive);
+        Global.adRewardType = ADREWARDTYPE.revive;
+    }
 
 
-    public IEnumerator Counter(float dur, int min, int max, Text text)
+
+    private IEnumerator Counter(float dur, int min, int max, Text text)
     {
         float rate = (max - min) / (dur * 10);
         float timer = 0;
         float progress = min;
-        while(timer < dur &&  Mathf.Ceil(progress) < max)
+        while(timer < dur &&  Mathf.Floor(progress) < max)
         {
             progress+=rate;
             timer+=0.01f;
-            text.text = Mathf.Ceil(progress) + "";
+            text.text = Mathf.Floor(progress) + "";
             yield return new WaitForSeconds(0.01f);
         }
     }
