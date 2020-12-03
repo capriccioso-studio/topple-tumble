@@ -34,9 +34,19 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
 
     public void LoadAD(Button btn_watchAd)
     {
-        Advertisement.AddListener (this);
-        Advertisement.Initialize (gameId, testMode);
         this.btn_watchAd = btn_watchAd;
+
+        if(!Advertisement.IsReady(myPlacementId))
+        {
+            Advertisement.AddListener (this);
+            Advertisement.Initialize (gameId, testMode);
+        }
+        else
+        {
+            btn_watchAd.interactable = true;
+
+        }
+
     }
 
     public void StartAd()

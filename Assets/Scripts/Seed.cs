@@ -8,6 +8,7 @@ public class Seed : MonoBehaviour
     private Rigidbody2D rb2d;
     private SpriteRenderer spriteRenderer;
     private PolygonCollider2D polycol2D;
+    public Animator animator;
     public bool isTouchingPlatform = false, isDead = false, hasDied = false;
     private float deathCount = 0;
     void Start()
@@ -42,22 +43,26 @@ public class Seed : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
+        float zangle = this.transform.rotation.eulerAngles.z;
+        animator.SetFloat("zangle", (zangle > 180) ? zangle - 360 : zangle);
+
         if(!isTouchingPlatform)
-        {
             deathCount += Time.deltaTime;
-        }
-        else 
-        {
+        else
             deathCount = 0;
-        }
         
         if(deathCount > 3 && !isDead)
         {
             isDead = true;
             Global.gameManager.Die();
-
         }
+
+
+
+
+
     }
+
 
 
     /// <summary>
@@ -91,7 +96,7 @@ public class Seed : MonoBehaviour
         while(rb2d.gravityScale < seed.gravityScale * 0.15f)
         {
             normalizedTime += Time.deltaTime / duration;
-            rb2d.gravityScale += 0.01f;
+            rb2d.gravityScale += 0.005f;
             yield return null;
         }
         

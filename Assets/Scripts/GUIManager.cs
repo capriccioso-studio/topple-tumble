@@ -14,6 +14,7 @@ public class GUIManager : MonoBehaviour
 
     [Header("Revive")]
     public Button btn_WatchAdToRevive;
+    public Text txt_reviveCountdown;
     void Start()
     {
         ChangeGUI((int)GUISTATE.mainmenu);
@@ -127,6 +128,7 @@ public class GUIManager : MonoBehaviour
         guiPanels[(int)Global.guiState].SetActive(true);
         Global.adManager.LoadAD(btn_WatchAdToRevive);
         Global.adRewardType = ADREWARDTYPE.revive;
+        StartCoroutine(ReviveCountdown(5, txt_reviveCountdown));
     }
 
 
@@ -143,6 +145,19 @@ public class GUIManager : MonoBehaviour
             text.text = Mathf.Floor(progress) + "";
             yield return new WaitForSeconds(0.01f);
         }
+    }
+
+    private IEnumerator ReviveCountdown(float start, Text text)
+    {
+        float timer = start;
+
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            text.text = Mathf.Ceil(timer) + "";
+            yield return new WaitForEndOfFrame();
+        }
+        ChangeGUI(11);
     }
 
 

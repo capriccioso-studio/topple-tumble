@@ -52,8 +52,8 @@ public class GameManager : MonoBehaviour
 
     public void ResetScene()
     {
-        SceneManager.UnloadSceneAsync("GameScene");
         SceneManager.LoadScene("GameScene", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("GameScene");
     }
 
     public void Die()

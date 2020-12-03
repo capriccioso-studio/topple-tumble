@@ -7,6 +7,7 @@ public class Platform : MonoBehaviour
     public PlatformScriptableObject platform;
     public GameObject lBooster, rBooster;
     public float lboostAmount = 0, rboostAmount = 0;
+    public ParticleSystem rParticles, lParticles;
     private Rigidbody2D rb2d;
 
     private bool isLeftBoosting, isRightBoosting;
@@ -44,6 +45,8 @@ public class Platform : MonoBehaviour
                 rboostAmount += Time.deltaTime * (platform.acceleration); 
             }
             rb2d.AddForceAtPosition(rBooster.transform.up * rboostAmount * Time.deltaTime * 100, rBooster.transform.position, ForceMode2D.Force);
+            rParticles.gravityModifier = rboostAmount * 0.2f;
+        
         }
         else
         {
@@ -51,6 +54,7 @@ public class Platform : MonoBehaviour
             {
                 rboostAmount -= Time.deltaTime; 
             }
+            rParticles.gravityModifier = 0;
 
         }
 
@@ -61,6 +65,7 @@ public class Platform : MonoBehaviour
                 lboostAmount += Time.deltaTime * (platform.acceleration); 
             }
             rb2d.AddForceAtPosition(lBooster.transform.up * lboostAmount * Time.deltaTime * 100, lBooster.transform.position, ForceMode2D.Force);
+            lParticles.gravityModifier = lboostAmount * 0.2f;
 
         }
         else
@@ -69,8 +74,18 @@ public class Platform : MonoBehaviour
             {
                 lboostAmount -= Time.deltaTime; 
             }
+            lParticles.gravityModifier = 0;
+
         }
+
+        //rParticles.maxParticles = (int)Mathf.Ceil((rboostAmount/platform.boosterStrength) * 50);
+        //lParticles.maxParticles = (int)Mathf.Ceil((lboostAmount/platform.boosterStrength) * 50);
+        
+        lParticles.maxParticles = (int)(lParticles.gravityModifier * 50);
+        rParticles.maxParticles = (int)(rParticles.gravityModifier * 50);
+
     }
+
 
     public void BoostLeft()
     {
