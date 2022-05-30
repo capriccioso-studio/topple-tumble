@@ -11,4 +11,5 @@ public static class Global
   public static int score = 0;
   public static ADREWARDTYPE adRewardType;
   public static AdManager adManager;
+  public static Backend backend;
 }

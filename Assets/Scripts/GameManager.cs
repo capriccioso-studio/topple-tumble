@@ -15,9 +15,9 @@ public class GameManager : MonoBehaviour
         Global.gameManager = this;
 
         SceneManager.LoadScene("Splash", LoadSceneMode.Additive);
-        StartCoroutine(LoadingScreen());
         
         InitializeGameScene(gameDB.seedTypes[0], gameDB.environmentTypes, gameDB.platformTypes[0]);
+        StartCoroutine(LoadingScreen());
     }
 
     // Update is called once per frame
@@ -58,6 +58,9 @@ public class GameManager : MonoBehaviour
 
     public void Die()
     {
+        Debug.Log("ded");
+        StartCoroutine(Global.backend.AirdropTokens(Global.score));
+
         if(Global.seed.GetComponent<Seed>().hasDied)
             gui.ChangeGUI(11);
         else
