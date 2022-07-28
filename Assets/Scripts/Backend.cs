@@ -20,6 +20,8 @@ public class Backend : MonoBehaviour
     public float originalFontSize = 0;
     // public TMP_Text tokentext;
     public HttpClient client = new HttpClient();
+    public string deeplinkURL;
+    public GameObject login;
 
     public void Start()
     {
@@ -38,8 +40,15 @@ public class Backend : MonoBehaviour
             Debug.Log("new user: " + userId);
         }
 
-        // InvokeRepeating("GetTokens", 0.0f, 5.0f);
-        // AirdropTokens(1);
+
+        Application.deepLinkActivated += onDeepLinkActivated;
+        if (!string.IsNullOrEmpty(Application.absoluteURL))
+        {
+            // Cold start and Application.absoluteURL not null so process Deep Link.
+            onDeepLinkActivated(Application.absoluteURL);
+        }
+        // Initialize DeepLink Manager global variable.
+        else deeplinkURL = "[none]";
     }   
 
     private async Task<string> GetTokens()
@@ -102,33 +111,20 @@ public class Backend : MonoBehaviour
         }
     }
 
-    public async Task<bool> AirdrospTokens(int amount)
+    public void OpenLogin()
     {
-        Debug.Log("Sending tokens");
-        // Call asynchronous network methods in a try/catch block to handle exceptions.
-        try	
-        {
-            HttpRequestMessage request = new HttpRequestMessage();
-            request.RequestUri = new Uri(baseUrl + "/v1/transactions/airdrop?DeveloperToken=" + token_id + "&DeveloperTokenAmount=" + amount + "&GamerId=" + userId);
-            request.Method = HttpMethod.Post;
-            request.Headers.Add("X-API-KEY", api_key);
-            HttpResponseMessage response = await client.SendAsync(request);
-            response.EnsureSuccessStatusCode();
-            string responseBody = await response.Content.ReadAsStringAsync();
-            // Above three lines can be replaced with new helper method below
-            // string responseBody = await client.GetStringAsync(baseUrl + "/v1/users/" + userId + "/tokens");
-            var jsonData = JSON.Parse(responseBody);
-
-            var message = jsonData["viewModel"].Value;
-
-            Debug.Log("Airdrop end");
-        }
-        catch(HttpRequestException e)
-        {
-            Debug.Log("\nException Caught!");	
-            Debug.Log(e.Message);
-        }
-
-        return true;
+        Application.OpenURL("https://xarcade-gamer.proximaxtest.com/android-auth/unitydl:%2F%2Fauth");
     }
+    private void onDeepLinkActivated(string url)
+    {
+        // Update DeepLink Manager global variable, so URL can be accessed from anywhere.
+        deeplinkURL = url;
+                
+        // Decode the URL to determine action. 
+        // In this example, the app expects a link formatted like this:
+        // unitydl://mylink?scene1
+        this.userId = url.Split("?"[0])[1];
+        login.SetActive(false);
+    }
+
 }
