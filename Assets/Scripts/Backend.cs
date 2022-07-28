@@ -12,6 +12,7 @@ using TMPro;
 
 public class Backend : MonoBehaviour
 {
+    public static Backend Instance {get; private set;}
     public string userId;
     public string baseUrl = "192.168.0.102:8081";
     public string api_key;
@@ -22,6 +23,27 @@ public class Backend : MonoBehaviour
     public HttpClient client = new HttpClient();
     public string deeplinkURL;
     public GameObject login;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;                
+            Application.deepLinkActivated += onDeepLinkActivated;
+            if (!string.IsNullOrEmpty(Application.absoluteURL))
+            {
+                // Cold start and Application.absoluteURL not null so process Deep Link.
+                onDeepLinkActivated(Application.absoluteURL);
+            }
+            // Initialize DeepLink Manager global variable.
+            else deeplinkURL = "[none]";
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void Start()
     {
@@ -39,16 +61,6 @@ public class Backend : MonoBehaviour
             userId = Application.absoluteURL.Split("?"[0])[1].Split("=")[1];
             Debug.Log("new user: " + userId);
         }
-
-
-        Application.deepLinkActivated += onDeepLinkActivated;
-        if (!string.IsNullOrEmpty(Application.absoluteURL))
-        {
-            // Cold start and Application.absoluteURL not null so process Deep Link.
-            onDeepLinkActivated(Application.absoluteURL);
-        }
-        // Initialize DeepLink Manager global variable.
-        else deeplinkURL = "[none]";
     }   
 
     private async Task<string> GetTokens()
@@ -113,7 +125,7 @@ public class Backend : MonoBehaviour
 
     public void OpenLogin()
     {
-        Application.OpenURL("https://xarcade-gamer.proximaxtest.com/android-auth/unitydl:%2F%2Fauth");
+        Application.OpenURL("https://xarcade-gamer.proximaxtest.com/android-auth/tt:%2F%2Fauth");
     }
     private void onDeepLinkActivated(string url)
     {
