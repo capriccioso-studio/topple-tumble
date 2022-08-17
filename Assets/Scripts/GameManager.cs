@@ -59,7 +59,8 @@ public class GameManager : MonoBehaviour
     public void Die()
     {
         Debug.Log("ded");
-        StartCoroutine(Global.backend.AirdropTokens(Global.score));
+        Global.backend.SetDBScore(Global.score);
+        Global.backend.GetDBToken();
 
         if(Global.seed.GetComponent<Seed>().hasDied)
             gui.ChangeGUI(11);

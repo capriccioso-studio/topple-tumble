@@ -38,6 +38,39 @@ public class Platform : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            Touch touch1 = Input.GetTouch(0);
+
+            if(Input.touchCount > 1)
+                touch1 = Input.GetTouch(1);
+
+            if (touch.position.x < Screen.width/2 || touch1.position.x < Screen.width/2)
+            {
+                BoostLeft();
+            }
+            else
+            {
+                ReleaseLeft();
+            }
+
+            if (touch.position.x > Screen.width/2 || touch1.position.x > Screen.width/2)
+            {
+                BoostRight();
+            }
+            else
+            {
+                ReleaseRight();
+            }
+        }
+        else
+        {
+            ReleaseRight();
+            ReleaseLeft();
+        }
+
+
         if(Input.GetKey(KeyCode.Return) || isRightBoosting)
         {
             if(rboostAmount < platform.boosterStrength)
