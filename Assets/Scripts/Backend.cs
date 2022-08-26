@@ -183,6 +183,30 @@ public class Backend : MonoBehaviour
         }
     }
 
+    public IEnumerator Login(string email, string password)
+    {
+        Debug.Log("login lmao " );
+        string url = "https://xarcade-api.proximaxtest.com";
+        string body = "{ \"username\":\""+username+"\", \"password\":\""+password+"\"}";
+
+        using(UnityWebRequest request =  UnityWebRequest.Put(url + "/users/login", body))
+        {
+            request.SetRequestHeader("Content-Type", "application/json");
+            yield return request.SendWebRequest();
+
+            if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
+            {
+                Debug.Log("Error :(");
+                Debug.LogError(request.error, this);
+            }
+            else
+            {
+                Debug.Log("login Success!");
+
+            }
+        }
+    }
+
     public void OpenLogin()
     {
         Application.OpenURL("https://xarcade-gamer.proximaxtest.com/android-auth/" + game_id + "/tt:%2F%2Fauth");
