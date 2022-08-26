@@ -1,10 +1,7 @@
 
 using System;
-using System.IO;
 using System.Net.Http;
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 using SimpleJSON;
@@ -190,6 +187,7 @@ public class Backend : MonoBehaviour
     {
         Application.OpenURL("https://xarcade-gamer.proximaxtest.com/android-auth/" + game_id + "/tt:%2F%2Fauth");
     }
+
     private void onDeepLinkActivated(string url)
     {
         // Update DeepLink Manager global variable, so URL can be accessed from anywhere.
