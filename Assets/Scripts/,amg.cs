@@ -13,6 +13,7 @@ public class Platform : MonoBehaviour
     private bool isLeftBoosting, isRightBoosting;
     private SpriteRenderer spriteRenderer;
     private PolygonCollider2D polycol2D;
+    public AudioSource lBoostAudio, rBoostAudio;
 
     void Start()
     {
@@ -123,6 +124,7 @@ public class Platform : MonoBehaviour
     public void BoostLeft()
     {
         isLeftBoosting = true;
+        lBoostAudio.Play();
     }
 
     public void ReleaseLeft()
