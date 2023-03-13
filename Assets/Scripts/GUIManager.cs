@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class GUIManager : MonoBehaviour
 {
@@ -10,11 +10,10 @@ public class GUIManager : MonoBehaviour
 
 
     [Header("Result")]
-    public Text txt_resultScore;
+    public TMP_Text txt_resultScore;
 
     [Header("Revive")]
-    public Button btn_WatchAdToRevive;
-    public Text txt_reviveCountdown;
+    public TMP_Text txt_reviveCountdown;
     void Start()
     {
         ChangeGUI((int)GUISTATE.mainmenu);
@@ -124,21 +123,19 @@ public class GUIManager : MonoBehaviour
 
     private void RevivePromptGUI()
     {
-        btn_WatchAdToRevive.interactable = false;
         guiPanels[(int)Global.guiState].SetActive(true);
-        Global.adManager.LoadAD(btn_WatchAdToRevive);
         Global.adRewardType = ADREWARDTYPE.revive;
         StartCoroutine(ReviveCountdown(5, txt_reviveCountdown));
     }
 
 
 
-    private IEnumerator Counter(float dur, int min, int max, Text text)
+    private IEnumerator Counter(float dur, int min, int max, TMP_Text text)
     {
         float rate = (max - min) / (dur * 10);
         float timer = 0;
         float progress = min;
-        while(timer < dur &&  Mathf.Floor(progress) < max)
+        while(timer < dur &&  Mathf.Floor(progress) < max )
         {
             progress+=rate;
             timer+=0.01f;
@@ -147,7 +144,7 @@ public class GUIManager : MonoBehaviour
         }
     }
 
-    private IEnumerator ReviveCountdown(float start, Text text)
+    private IEnumerator ReviveCountdown(float start, TMP_Text text)
     {
         float timer = start;
 
@@ -157,7 +154,8 @@ public class GUIManager : MonoBehaviour
             text.text = Mathf.Ceil(timer) + "";
             yield return new WaitForEndOfFrame();
         }
-        ChangeGUI(11);
+        if(Global.guiState == GUISTATE.reviveprompt)
+            ChangeGUI(11);
     }
 
 

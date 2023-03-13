@@ -52,15 +52,14 @@ public class GameManager : MonoBehaviour
 
     public void ResetScene()
     {
-        SceneManager.LoadScene("GameScene", LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync("GameScene");
+        SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Additive);
     }
 
     public void Die()
     {
         Debug.Log("ded");
         Global.backend.SetDBScore(Global.score);
-        Global.backend.GetDBToken();
 
         if(Global.seed.GetComponent<Seed>().hasDied)
             gui.ChangeGUI(11);
