@@ -13,7 +13,7 @@
   <files />
   <settings>
     <setting name="androidAbis" value="armeabi-v7a" />
-    <setting name="bundleId" value="com.dandangames.toppletumble" />
+    <setting name="bundleId" value="com.capriccioso.toppletumble" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />
     <setting name="gradlePropertiesTemplateEnabled" value="False" />
