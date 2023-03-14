@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2bc3500176af4cdab42e324654c54d4, type: 3}
+  m_Name: Basic
+  m_EditorClassIdentifier: 
+  seedtype: 0
+  seedName: Basic
+  mass: 5
+  gravityScale: 5
+  physMat: {fileID: 6200000, guid: a1a1fff96e7a6a74b8835d8f77a51cd0, type: 2}
+  soloSprite: {fileID: 1550723244, guid: b6b866a85cd1a49a085e7d7e79dfb571, type: 3}
+  seedAnimator: {fileID: 0}
