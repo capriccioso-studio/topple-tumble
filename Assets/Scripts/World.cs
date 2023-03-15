@@ -49,7 +49,8 @@ public class World : MonoBehaviour
     {
         Transform lastChild = layer.transform.GetChild(layer.transform.childCount - 1);
             Instantiate(lastChild.gameObject, 
-                        new Vector3(lastChild.position.x, lastChild.position.y + (layer.transform.localScale.z * 12.78f) ,lastChild.position.z),
+                        new Vector3(lastChild.position.x, lastChild.position.y + (layer.transform.localScale.z * 11f) ,lastChild.position.z),
+                        // new Vector3(lastChild.position.x, lastChild.position.y + (layer.transform.localScale.z * 12.78f) ,lastChild.position.z),
                         lastChild.rotation,
                         layer.transform);
     }

@@ -23,8 +23,9 @@ public enum ENVIRONMENT
 
 public enum SEEDTYPE
 {
+  basic,
   nica,
-  dane
+  dane,
 }
 
 public enum PLATFORMTYPE
