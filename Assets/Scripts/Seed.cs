@@ -8,6 +8,7 @@ public class Seed : MonoBehaviour
     private Rigidbody2D rb2d;
     private SpriteRenderer spriteRenderer;
     private PolygonCollider2D polycol2D;
+    public ParticleSystem explodeParticle;
     public Animator animator;
     public bool isTouchingPlatform = false, isDead = false, hasDied = false;
     private float deathCount = 0;
@@ -55,12 +56,17 @@ public class Seed : MonoBehaviour
         {
             isDead = true;
             Global.gameManager.Die();
+            explodeParticle.Play();
+            StartCoroutine(DelayedDestroy());
         }
 
 
+    }
 
-
-
+    public IEnumerator DelayedDestroy()
+    {
+        yield return new WaitForSeconds(0.8f);
+        Destroy(this.gameObject);
     }
 
 
