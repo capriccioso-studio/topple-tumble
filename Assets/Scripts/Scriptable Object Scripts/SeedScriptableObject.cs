@@ -9,6 +9,7 @@ public class SeedScriptableObject : ScriptableObject
     public string seedName = "same";
     public float mass = 1;
     public float gravityScale = 1;
+    public AudioClip deathSound;
     public PhysicsMaterial2D physMat;
 
     [Header("Seed Sprites")]

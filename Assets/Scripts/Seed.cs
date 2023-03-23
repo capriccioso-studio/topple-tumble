@@ -10,6 +10,7 @@ public class Seed : MonoBehaviour
     public PolygonCollider2D polycol2D;
     public ParticleSystem explodeParticle;
     public Animator animator;
+    public AudioSource audioSource;
     public bool isTouchingPlatform = false, isDead = false, hasDied = false;
     private float deathCount = 0;
     void Start()
@@ -55,6 +56,8 @@ public class Seed : MonoBehaviour
         {
             isDead = true;
             Global.gameManager.Die();
+            audioSource.clip = seed.deathSound;
+            audioSource.Play();
             var iExplodeParticle = Instantiate(explodeParticle, transform.position, Quaternion.identity);
             iExplodeParticle.Play();
             this.gameObject.SetActive(false);

@@ -16,6 +16,7 @@ MonoBehaviour:
   seedName: Nica
   mass: 5
   gravityScale: 5
+  deathSound: {fileID: 8300000, guid: 2e4932648cd9947d9bffddb739a73b9d, type: 3}
   physMat: {fileID: 6200000, guid: a1a1fff96e7a6a74b8835d8f77a51cd0, type: 2}
   soloSprite: {fileID: 21300000, guid: 40bd342ffc2aa31498e8fffde79a9b03, type: 3}
   seedAnimator: {fileID: 0}
