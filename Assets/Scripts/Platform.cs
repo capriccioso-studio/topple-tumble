@@ -76,9 +76,9 @@ public class Platform : MonoBehaviour
         {
             if(rboostAmount < platform.boosterStrength)
             {
-                rboostAmount += Time.deltaTime * (platform.acceleration); 
+                rboostAmount += Time.fixedDeltaTime * (platform.acceleration); 
             }
-            rb2d.AddForceAtPosition(rBooster.transform.up * rboostAmount * Time.deltaTime * 100, rBooster.transform.position, ForceMode2D.Force);
+            rb2d.AddForceAtPosition(rBooster.transform.up * rboostAmount * Time.fixedDeltaTime * 100, rBooster.transform.position, ForceMode2D.Force);
             rParticles.gravityModifier = rboostAmount * 0.2f;
         
         }
@@ -86,7 +86,7 @@ public class Platform : MonoBehaviour
         {
             if(rboostAmount > 0)
             {
-                rboostAmount -= Time.deltaTime; 
+                rboostAmount -= Time.fixedDeltaTime; 
             }
             rParticles.gravityModifier = 0;
 
@@ -96,9 +96,9 @@ public class Platform : MonoBehaviour
         {
             if(lboostAmount < platform.boosterStrength)
             {
-                lboostAmount += Time.deltaTime * (platform.acceleration); 
+                lboostAmount += Time.fixedDeltaTime * (platform.acceleration); 
             }
-            rb2d.AddForceAtPosition(lBooster.transform.up * lboostAmount * Time.deltaTime * 100, lBooster.transform.position, ForceMode2D.Force);
+            rb2d.AddForceAtPosition(lBooster.transform.up * lboostAmount * Time.fixedDeltaTime * 100, lBooster.transform.position, ForceMode2D.Force);
             lParticles.gravityModifier = lboostAmount * 0.2f;
 
         }
@@ -106,7 +106,7 @@ public class Platform : MonoBehaviour
         {
             if(lboostAmount > 0)
             {
-                lboostAmount -= Time.deltaTime; 
+                lboostAmount -= Time.fixedDeltaTime; 
             }
             lParticles.gravityModifier = 0;
 
@@ -158,7 +158,7 @@ public class Platform : MonoBehaviour
         float normalizedTime = 0;
         while(rb2d.gravityScale < platform.gravityScale * 0.15f)
         {
-            normalizedTime += Time.deltaTime / duration;
+            normalizedTime += Time.fixedDeltaTime / duration;
             rb2d.gravityScale += 0.005f;
 
             yield return null;

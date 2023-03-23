@@ -7,7 +7,7 @@ public class Seed : MonoBehaviour
     public SeedScriptableObject seed;
     private Rigidbody2D rb2d;
     private SpriteRenderer spriteRenderer;
-    private PolygonCollider2D polycol2D;
+    public PolygonCollider2D polycol2D;
     public ParticleSystem explodeParticle;
     public Animator animator;
     public bool isTouchingPlatform = false, isDead = false, hasDied = false;
@@ -20,8 +20,7 @@ public class Seed : MonoBehaviour
 
 
         spriteRenderer.sprite = seed.soloSprite;
-        polycol2D = this.gameObject.AddComponent<PolygonCollider2D>();
-        polycol2D.offset = new Vector2(0,0.17f);
+        // polycol2D = this.gameObject.AddComponent<PolygonCollider2D>();
 
 
         rb2d.mass = seed.mass * 0.1f;
@@ -56,18 +55,14 @@ public class Seed : MonoBehaviour
         {
             isDead = true;
             Global.gameManager.Die();
-            explodeParticle.Play();
-            StartCoroutine(DelayedDestroy());
+            var iExplodeParticle = Instantiate(explodeParticle, transform.position, Quaternion.identity);
+            iExplodeParticle.Play();
+            this.gameObject.SetActive(false);
         }
 
 
     }
 
-    public IEnumerator DelayedDestroy()
-    {
-        yield return new WaitForSeconds(0.8f);
-        Destroy(this.gameObject);
-    }
 
 
 
