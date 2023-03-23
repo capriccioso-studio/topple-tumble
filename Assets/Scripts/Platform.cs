@@ -23,7 +23,6 @@ public class Platform : MonoBehaviour
 
 
         spriteRenderer.sprite = platform.platformSprite;
-        polycol2D = this.gameObject.AddComponent<PolygonCollider2D>();
         rb2d = this.gameObject.AddComponent<Rigidbody2D>();
 
 

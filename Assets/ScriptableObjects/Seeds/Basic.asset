@@ -17,6 +17,7 @@ MonoBehaviour:
   mass: 5
   gravityScale: 5
   deathSound: {fileID: 8300000, guid: 2e4932648cd9947d9bffddb739a73b9d, type: 3}
+  hitSound: {fileID: 8300000, guid: 4847e51632dd0449b8eb9b068a5e9072, type: 3}
   physMat: {fileID: 6200000, guid: a1a1fff96e7a6a74b8835d8f77a51cd0, type: 2}
   soloSprite: {fileID: 1550723244, guid: b6b866a85cd1a49a085e7d7e79dfb571, type: 3}
   seedAnimator: {fileID: 0}

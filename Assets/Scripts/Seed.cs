@@ -51,21 +51,34 @@ public class Seed : MonoBehaviour
             deathCount += Time.deltaTime;
         else
             deathCount = 0;
+
         
         if(deathCount > 3 && !isDead)
         {
             isDead = true;
             Global.gameManager.Die();
-            audioSource.clip = seed.deathSound;
-            audioSource.Play();
             var iExplodeParticle = Instantiate(explodeParticle, transform.position, Quaternion.identity);
             iExplodeParticle.Play();
-            this.gameObject.SetActive(false);
+            audioSource.clip = seed.deathSound;
+            audioSource.Play();
+            gameObject.SetActive(false);
         }
 
 
     }
+    public IEnumerator DelayedDisable(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+    }
 
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(!other.gameObject.CompareTag("Platform"))
+        {
+            audioSource.clip = seed.hitSound;
+            audioSource.Play();
+        }
+    }
 
 
 
