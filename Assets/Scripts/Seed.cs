@@ -44,7 +44,7 @@ public class Seed : MonoBehaviour
     void FixedUpdate()
     {
         float zangle = this.transform.rotation.eulerAngles.z;
-        animator.SetFloat("zangle", (zangle > 180) ? zangle - 360 : zangle);
+        // animator.SetFloat("zangle", (zangle > 180) ? zangle - 360 : zangle);
 
         if(!isTouchingPlatform)
             deathCount += Time.deltaTime;
