@@ -70,21 +70,17 @@ public class Platform : MonoBehaviour
             ReleaseLeft();
         }
 
-        if(Input.GetKeyDown(KeyCode.Return))
-        {
-            rBoostAudio.Play();
-        }
-        else if(Input.GetKeyDown(KeyCode.Space))
-        {
-            lBoostAudio.Play();
-        }
-
         if(Input.GetKey(KeyCode.Return) || isRightBoosting)
         {
+            if(!rBoostAudio.isPlaying)
+                rBoostAudio.Play();
             if(rboostAmount < platform.boosterStrength)
             {
-
                 rboostAmount += Time.fixedDeltaTime * (platform.acceleration); 
+            }
+            else
+            {
+                rboostAmount += Time.fixedDeltaTime * (platform.acceleration * 0.05f); 
             }
             rb2d.AddForceAtPosition(rBooster.transform.up * rboostAmount * Time.fixedDeltaTime * 100, rBooster.transform.position, ForceMode2D.Force);
             rParticles.gravityModifier = rboostAmount * 0.2f;
@@ -98,20 +94,26 @@ public class Platform : MonoBehaviour
             }
             else
             {
-                rBoostAudio.Stop();
 
             }
+                rBoostAudio.Stop();
+
             rParticles.gravityModifier = 0;
 
         }
 
         if(Input.GetKey(KeyCode.Space) || isLeftBoosting)
         {
+            if(!lBoostAudio.isPlaying)
+                lBoostAudio.Play();
             if(lboostAmount < platform.boosterStrength)
             {
-                lboostAmount += Time.fixedDeltaTime * (platform.acceleration); 
+                 lboostAmount += Time.fixedDeltaTime * (platform.acceleration); 
             }
-
+            else
+            {
+                lboostAmount += Time.fixedDeltaTime * (platform.acceleration * 0.1f);
+            }
             rb2d.AddForceAtPosition(lBooster.transform.up * lboostAmount * Time.fixedDeltaTime * 100, lBooster.transform.position, ForceMode2D.Force);
             lParticles.gravityModifier = lboostAmount * 0.2f;
 
@@ -124,8 +126,8 @@ public class Platform : MonoBehaviour
             }
             else
             {
-                lBoostAudio.Stop();
             }
+            lBoostAudio.Stop();
             lParticles.gravityModifier = 0;
 
         }

@@ -1366,7 +1366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  smoothTime: 0.3
+  smoothTime: 0.4
   minX: -2.35
   maxX: 2.35
 --- !u!20 &519420031
