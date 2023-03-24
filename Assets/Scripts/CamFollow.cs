@@ -10,7 +10,7 @@ public class CamFollow : MonoBehaviour {
     [SerializeField] private float maxX = 10f;
 
     // Update is called once per frame
-    void LateUpdate () 
+    void FixedUpdate () 
     {
         if(Global.guiState != GUISTATE.game)
         {

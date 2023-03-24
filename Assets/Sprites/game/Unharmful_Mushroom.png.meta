@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -129,7 +129,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Unharmful_Mushroom_0
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 450
+        width: 76
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eab42cbd932dd41c8b1504423666514a
+      internalID: 559425724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unharmful_Mushroom_1
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 319
+        width: 53
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5478c3228a94c4cba85fc61abf6e02ec
+      internalID: 82437224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unharmful_Mushroom_2
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 313
+        width: 21
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1b084805c57543d4830fe359e8c64d3
+      internalID: 551412362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unharmful_Mushroom_3
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 174
+        width: 102
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be1479b18089c4f68a6c321cdc23a358
+      internalID: -1860424262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unharmful_Mushroom_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 61
+        width: 108
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fc1a9f6262ce4669bf6f5891144643c
+      internalID: 924123756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -140,7 +245,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Unharmful_Mushroom_3: -1860424262
+      Unharmful_Mushroom_4: 924123756
+      Unharmful_Mushroom_1: 82437224
+      Unharmful_Mushroom_0: 559425724
+      Unharmful_Mushroom_2: 551412362
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
