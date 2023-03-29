@@ -23,7 +23,6 @@ public class Platform : MonoBehaviour
 
 
         spriteRenderer.sprite = platform.platformSprite;
-        polycol2D = this.gameObject.AddComponent<PolygonCollider2D>();
         rb2d = this.gameObject.AddComponent<Rigidbody2D>();
 
 
@@ -71,14 +70,19 @@ public class Platform : MonoBehaviour
             ReleaseLeft();
         }
 
-
         if(Input.GetKey(KeyCode.Return) || isRightBoosting)
         {
+            if(!rBoostAudio.isPlaying)
+                rBoostAudio.Play();
             if(rboostAmount < platform.boosterStrength)
             {
-                rboostAmount += Time.deltaTime * (platform.acceleration); 
+                rboostAmount += Time.fixedDeltaTime * (platform.acceleration); 
             }
-            rb2d.AddForceAtPosition(rBooster.transform.up * rboostAmount * Time.deltaTime * 100, rBooster.transform.position, ForceMode2D.Force);
+            else
+            {
+                rboostAmount += Time.fixedDeltaTime * (platform.acceleration * 0.05f); 
+            }
+            rb2d.AddForceAtPosition(rBooster.transform.up * rboostAmount * Time.fixedDeltaTime * 100, rBooster.transform.position, ForceMode2D.Force);
             rParticles.gravityModifier = rboostAmount * 0.2f;
         
         }
@@ -86,19 +90,31 @@ public class Platform : MonoBehaviour
         {
             if(rboostAmount > 0)
             {
-                rboostAmount -= Time.deltaTime; 
+                rboostAmount -= Time.fixedDeltaTime; 
             }
+            else
+            {
+
+            }
+                rBoostAudio.Stop();
+
             rParticles.gravityModifier = 0;
 
         }
 
         if(Input.GetKey(KeyCode.Space) || isLeftBoosting)
         {
+            if(!lBoostAudio.isPlaying)
+                lBoostAudio.Play();
             if(lboostAmount < platform.boosterStrength)
             {
-                lboostAmount += Time.deltaTime * (platform.acceleration); 
+                 lboostAmount += Time.fixedDeltaTime * (platform.acceleration); 
             }
-            rb2d.AddForceAtPosition(lBooster.transform.up * lboostAmount * Time.deltaTime * 100, lBooster.transform.position, ForceMode2D.Force);
+            else
+            {
+                lboostAmount += Time.fixedDeltaTime * (platform.acceleration * 0.1f);
+            }
+            rb2d.AddForceAtPosition(lBooster.transform.up * lboostAmount * Time.fixedDeltaTime * 100, lBooster.transform.position, ForceMode2D.Force);
             lParticles.gravityModifier = lboostAmount * 0.2f;
 
         }
@@ -106,8 +122,12 @@ public class Platform : MonoBehaviour
         {
             if(lboostAmount > 0)
             {
-                lboostAmount -= Time.deltaTime; 
+                lboostAmount -= Time.fixedDeltaTime; 
             }
+            else
+            {
+            }
+            lBoostAudio.Stop();
             lParticles.gravityModifier = 0;
 
         }
@@ -136,6 +156,7 @@ public class Platform : MonoBehaviour
     public void BoostRight()
     {
         isRightBoosting = true;
+        rBoostAudio.Play();
 
     }
 
@@ -158,7 +179,7 @@ public class Platform : MonoBehaviour
         float normalizedTime = 0;
         while(rb2d.gravityScale < platform.gravityScale * 0.15f)
         {
-            normalizedTime += Time.deltaTime / duration;
+            normalizedTime += Time.fixedDeltaTime / duration;
             rb2d.gravityScale += 0.005f;
 
             yield return null;

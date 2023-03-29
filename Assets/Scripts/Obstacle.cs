@@ -7,7 +7,8 @@ public class Obstacle : MonoBehaviour
     private Rigidbody2D rb2d;
     private HingeJoint2D hj2d;
     public float mass = 1, jointStrength = 10;
-    private bool selfDestruct = false;
+    public ParticleSystem explodeParticle;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,15 +25,21 @@ public class Obstacle : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
-        if(!hj2d)
-        {
-            selfDestruct = true;
-        }
+
+    }
+    void OnJointBreak2D(Joint2D brokenJoint)
+    {
+        StartCoroutine(DelayedExplode(2));
     }
 
-    private void OnBecameInvisible() {
-        if(selfDestruct && this.gameObject && this.gameObject.activeSelf)
-            Invoke("SelfDestruct", 10);
+    IEnumerator DelayedExplode(float delay = 0.5f)
+    {
+
+        yield return new WaitForSeconds(delay);
+        var iExplodeParticle = Instantiate(explodeParticle, transform.position, Quaternion.identity);
+        iExplodeParticle.Play();
+        Destroy(gameObject);
+
     }
 
     public void SelfDestruct()

@@ -19,7 +19,7 @@ MonoBehaviour:
   drag: 5
   angularDrag: 5
   gravityScale: 5
-  acceleration: 1
+  acceleration: 1.5
   physMat: {fileID: 6200000, guid: 065232a6957755942bbe79538513f097, type: 2}
   platformSprite: {fileID: 1119848758, guid: b2fe0313cb5874a8aae8def5a6b3a91b, type: 3}
   leftBooster: {fileID: 0}

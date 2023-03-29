@@ -7,8 +7,10 @@ public class Seed : MonoBehaviour
     public SeedScriptableObject seed;
     private Rigidbody2D rb2d;
     private SpriteRenderer spriteRenderer;
-    private PolygonCollider2D polycol2D;
+    public PolygonCollider2D polycol2D;
+    public ParticleSystem explodeParticle;
     public Animator animator;
+    public AudioSource audioSource;
     public bool isTouchingPlatform = false, isDead = false, hasDied = false;
     private float deathCount = 0;
     void Start()
@@ -19,8 +21,7 @@ public class Seed : MonoBehaviour
 
 
         spriteRenderer.sprite = seed.soloSprite;
-        polycol2D = this.gameObject.AddComponent<PolygonCollider2D>();
-        polycol2D.offset = new Vector2(0,0.17f);
+        // polycol2D = this.gameObject.AddComponent<PolygonCollider2D>();
 
 
         rb2d.mass = seed.mass * 0.1f;
@@ -50,17 +51,33 @@ public class Seed : MonoBehaviour
             deathCount += Time.deltaTime;
         else
             deathCount = 0;
+
         
         if(deathCount > 3 && !isDead)
         {
             isDead = true;
             Global.gameManager.Die();
+            var iExplodeParticle = Instantiate(explodeParticle, transform.position, Quaternion.identity);
+            iExplodeParticle.Play();
+            audioSource.clip = seed.deathSound;
+            audioSource.Play();
+            gameObject.SetActive(false);
         }
 
 
+    }
+    public IEnumerator DelayedDisable(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+    }
 
-
-
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(!other.gameObject.CompareTag("Platform"))
+        {
+            audioSource.clip = seed.hitSound;
+            audioSource.Play();
+        }
     }
 
 
