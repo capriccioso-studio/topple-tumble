@@ -5,9 +5,11 @@ using UnityEngine;
 public class World : MonoBehaviour
 {
     //12.78
-    public GameObject layer1, layer0, layerNeg1, layerNeg2, layerNeg3, layerNeg4, ground;
+    public GameObject layer1, layer0, layerNeg1, layerNeg2, layerNeg3, layerNeg4, ground, pickups;
     private Transform playerTransform;
     public GameObject[] easyObs, normalObs, hardObs, hellObs; 
+
+    public GameObject blueOrb;
     public int startingBase = 0;
     // Start is called before the first frame update
     void Start()
@@ -37,7 +39,15 @@ public class World : MonoBehaviour
             DuplicateBackground(layer1);
 
         if(playerTransform.position.y > (layer0.transform.GetChild(layer0.transform.childCount - 1).transform.position.y ) - (layer0.transform.localScale.z * 12.78) * 0.5)
-            SpawnNextObstacle(layer0.transform.GetChild(layer0.transform.childCount - 1).position.y +  (layer0.transform.localScale.z * 12.78f));
+        {
+            var y= layer0.transform.GetChild(layer0.transform.childCount - 1).position.y +  (layer0.transform.localScale.z * 12.78f);
+            if(Random.Range(0, 100) < 50)
+            {
+                SpawnNextOrb(y);
+            }
+
+            SpawnNextObstacle(y);
+        }
         
             
 
@@ -53,6 +63,17 @@ public class World : MonoBehaviour
                         // new Vector3(lastChild.position.x, lastChild.position.y + (layer.transform.localScale.z * 12.78f) ,lastChild.position.z),
                         lastChild.rotation,
                         layer.transform);
+    }
+
+    public void SpawnNextOrb(float yPos)
+    {
+        float xRand = Random.Range(-3.36f, 3.36f);
+        Instantiate(
+                blueOrb,
+                new Vector3(xRand, yPos, 0),
+                this.transform.rotation,
+                pickups.transform
+        );
     }
 
     public void SpawnNextObstacle(float yPos)
