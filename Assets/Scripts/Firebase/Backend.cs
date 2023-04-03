@@ -59,7 +59,7 @@ public class Backend : MonoBehaviour
         Debug.Log("user: " + auth);
         StartCoroutine(DelayedStart());
     }   
-    //Wait for firestorefunctions to be ready before starting
+    //Wait for firestorefunctions to beMetXDev ready before starting
     public IEnumerator DelayedStart()
     {
         while (!firestoreFunctions.isReady)
@@ -84,13 +84,19 @@ public class Backend : MonoBehaviour
             Debug.Log("new user: " + auth);
         }
     }
-
-    public void SetDBScore(int score)
+    public void SetDBScores(int score, int drop)
     {
-        firestoreFunctions.UpdateScore(username, score);
-        StartCoroutine(GetUser());
+        firestoreFunctions.UpdateScore(username, score, ()=>
+        {
+            firestoreFunctions.UpdateDrops(username, drop, ()=>
+            {
+                StartCoroutine(GetUser());
+            });
+            
+        });
 
     }
+ 
 
 
     private IEnumerator GetToken()
@@ -151,7 +157,7 @@ public class Backend : MonoBehaviour
                 }
                 else
                 {
-                    amountText.text = user.Score.ToString();
+                    amountText.text = user.Score + "";
                 }
             });
 
@@ -190,7 +196,7 @@ public class Backend : MonoBehaviour
 
     public void OpenLogin()
     {
-        Application.OpenURL("https://xarcade-gamer.proximaxtest.com/android-auth/" + game_id + "/tt:%2F%2Fauth");
+        Application.OpenURL("https://games.metaxar.io/android-auth/87B957AC7A4FB56B/tptb:%2F%2Fauth");
     }
 
     private void onDeepLinkActivated(string url)

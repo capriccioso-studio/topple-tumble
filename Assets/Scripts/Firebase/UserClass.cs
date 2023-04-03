@@ -15,6 +15,10 @@ public class UserClass
 
         [FirestoreProperty]
         public int Score { get; set; }
+
+        [FirestoreProperty]
+        public int Drops { get; set; }
+        
         [FirestoreProperty]
         public int PendingClaim { get; set; }
 }
