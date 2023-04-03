@@ -19,10 +19,12 @@ public class ScoreManager : MonoBehaviour
             if(Global.seed)
             {
                 score.text = Global.score + "";
+                drops.text = Global.orb + "";
             }
             else
             {
                 score.text = 0 + "";
+                drops.text = 0 + "";
             }
         }
     }

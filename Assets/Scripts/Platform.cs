@@ -14,6 +14,7 @@ public class Platform : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private PolygonCollider2D polycol2D;
     public AudioSource lBoostAudio, rBoostAudio;
+    public Animator animator;
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class Platform : MonoBehaviour
         rb2d.drag = platform.drag * 0.25f;
         rb2d.angularDrag = platform.angularDrag + 5;
         rb2d.gravityScale = platform.gravityScale * 0.15f;
+        animator = GetComponent<Animator>();
     }
 
     /// <summary>
@@ -102,6 +104,8 @@ public class Platform : MonoBehaviour
 
         }
 
+        animator.SetFloat("boost", (rboostAmount + lboostAmount) / 2);
+
         if(Input.GetKey(KeyCode.Space) || isLeftBoosting)
         {
             if(!lBoostAudio.isPlaying)
@@ -168,7 +172,7 @@ public class Platform : MonoBehaviour
 
     public void Revive()
     {
-        transform.position = new Vector3(0, Global.score-0.07f, 0);
+        transform.position = new Vector3(0, Global.score-2, 0);
         rb2d.gravityScale = 0;
         transform.localEulerAngles = new Vector3(0,0,0);
         StartCoroutine(ReviveFloat(5.0f));

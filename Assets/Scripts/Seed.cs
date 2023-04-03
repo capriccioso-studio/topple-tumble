@@ -98,6 +98,7 @@ public class Seed : MonoBehaviour
     
     public void Revive()
     {
+        gameObject.SetActive(true);
         transform.localEulerAngles = new Vector3(0,0,0);
         transform.position = new Vector3(0, Global.score, 0);
         hasDied = true;
