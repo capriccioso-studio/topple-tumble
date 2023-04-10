@@ -8,6 +8,7 @@ public class Obstacle : MonoBehaviour
     private HingeJoint2D hj2d;
     public float mass = 1, jointStrength = 10;
     public ParticleSystem explodeParticle;
+    public bool explodeOnBump = false;
     
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,18 @@ public class Obstacle : MonoBehaviour
         StartCoroutine(DelayedExplode(2));
     }
 
+    private void OnCollisionEnter2D(Collision2D other) 
+    {
+        if(explodeOnBump)
+        {
+            if(other.gameObject.CompareTag("Player"))
+            {
+                StartCoroutine(DelayedExplode(3));
+                var iExplodeParticle = Instantiate(explodeParticle, transform.position, Quaternion.identity);
+                iExplodeParticle.Play();
+            }
+        }
+    }
     IEnumerator DelayedExplode(float delay = 0.5f)
     {
 
