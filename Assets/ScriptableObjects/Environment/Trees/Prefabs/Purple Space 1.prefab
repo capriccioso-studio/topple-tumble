@@ -1218,11 +1218,11 @@ MonoBehaviour:
   - {fileID: 5518443297433295988, guid: 9c65485d97ae04661b0ded4ca97fdea9, type: 3}
   - {fileID: 5518443297433295988, guid: 6dfc779d102354d188acf530af147a66, type: 3}
   - {fileID: 1284436434957533113, guid: f2c26c4f173ca4d02811120481bdff7a, type: 3}
+  - {fileID: 3224896103144817105, guid: dbbdc96bd21537c49b398cc60cdcd56b, type: 3}
+  - {fileID: 5485039058446456992, guid: ae0860a9d76c2284499880c74d785611, type: 3}
+  - {fileID: 6975620493636652494, guid: 6bb604daff70c1e46996c483d5097fd9, type: 3}
   normalObs:
-  - {fileID: 5538908822801460499, guid: 140a645efbceb954dadb2dbed969955c, type: 3}
-  - {fileID: 7129719756255527380, guid: bbf804edf6895e944bd0c461fe3f0a12, type: 3}
-  - {fileID: 9060418605306221976, guid: 8f6aca5c80c670945aa8e3223d9e20ba, type: 3}
-  - {fileID: 831267373856045625, guid: 28f786c249bfb7e4f8c04ea5dfa6e947, type: 3}
+  - {fileID: 3280440640169824817, guid: 39b425dce05925842bdec8c764810e55, type: 3}
   hardObs: []
   hellObs: []
   blueOrb: {fileID: 407058866398955000, guid: a1fa108bca3c88848a72d0029d949422, type: 3}
