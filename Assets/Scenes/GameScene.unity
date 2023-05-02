@@ -237,6 +237,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
+      propertyPath: InitialModule.startColor.minMaxState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.ctime0
       value: 0
       objectReference: {fileID: 0}
@@ -254,27 +258,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.b
-      value: 0.3301887
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.r
-      value: 0.27746955
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.b
-      value: 0.089009635
+      value: 0.3160377
       objectReference: {fileID: 0}
     - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.g
-      value: 0.3207547
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.r
-      value: 0
+      value: 0.9889183
       objectReference: {fileID: 0}
     - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key2.b
@@ -297,8 +301,40 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key0.b
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key0.g
+      value: 0.82416344
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key1.b
+      value: 0.2688679
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key1.g
+      value: 0.972718
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key1.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_ColorSpace
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.m_NumColorKeys
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.m_ColorSpace
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19910226, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
       propertyPath: m_Materials.Array.size
@@ -665,7 +701,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!82 &536579878
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1406,7 +1441,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1900715162
 PrefabInstance:
   m_ObjectHideFlags: 0
