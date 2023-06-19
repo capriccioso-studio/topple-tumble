@@ -1126,6 +1126,83 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: easyObs.Array.size
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: easyObs.Array.data[8]
+      value: 
+      objectReference: {fileID: 5518443297433295988, guid: ec6a4681dc61704449888082ca9b4d89,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: easyObs.Array.data[9]
+      value: 
+      objectReference: {fileID: 5518443297433295988, guid: 2b17c4e1ba976ed4da778db31239a49a,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: easyObs.Array.data[10]
+      value: 
+      objectReference: {fileID: 5518443297433295988, guid: bb3274bb46b02414eb65636fc6bc110e,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: easyObs.Array.data[11]
+      value: 
+      objectReference: {fileID: 5518443297433295988, guid: 9ede53bdafd2d424b90de6ce27626a36,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: easyObs.Array.data[12]
+      value: 
+      objectReference: {fileID: 5518443297433295988, guid: 820bd95ab1f9c244da4d8d6f35acffac,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: easyObs.Array.data[13]
+      value: 
+      objectReference: {fileID: 5518443297433295988, guid: 98e30445636c32f45889540112d75b42,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: easyObs.Array.data[14]
+      value: 
+      objectReference: {fileID: 5518443297433295988, guid: 834cbd88351c08b43b3495abf9029647,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: easyObs.Array.data[15]
+      value: 
+      objectReference: {fileID: 5518443297433295988, guid: b26a503f52196a84f9f604315a0fcbd1,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: easyObs.Array.data[16]
+      value: 
+      objectReference: {fileID: 5518443297433295988, guid: d571cb8b0d0d53c4087727b1285ef4b0,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: easyObs.Array.data[17]
+      value: 
+      objectReference: {fileID: 5518443297433295988, guid: 76259b06b6ca02243adb1314ba81f95e,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: easyObs.Array.data[18]
+      value: 
+      objectReference: {fileID: 1284436434957533113, guid: 08e6fb5e43474dd468638542ac16d466,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: easyObs.Array.data[19]
+      value: 
+      objectReference: {fileID: 5518443297433295988, guid: 2b8cc45a9ba04b3458014bf2eb839028,
+        type: 3}
     - target: {fileID: 4717751119579413738, guid: 09687fd495012415ba577a0047168930,
         type: 3}
       propertyPath: m_RootOrder
