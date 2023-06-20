@@ -14,6 +14,8 @@ public enum GUISTATE
   results = 11,
   loading = 12,
   reviveprompt = 13,
+  metaxar = 14,
+  metaxarclaimconfirmation = 15,
 }
 
 public enum ENVIRONMENT

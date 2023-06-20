@@ -25,6 +25,7 @@ public class CamFollow : MonoBehaviour {
         {
             Vector3 targetPosition = target.position;
             targetPosition.z = transform.position.z;
+            targetPosition.y = target.transform.position.y +3;
             targetPosition.x = Mathf.Clamp(targetPosition.x, minX, maxX);
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
         }

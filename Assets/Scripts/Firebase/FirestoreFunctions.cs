@@ -19,6 +19,7 @@ public class FirestoreFunctions : MonoBehaviour
             // Create and hold a reference to your FirebaseApp,
             // where app is a Firebase.FirebaseApp property of your application class.
             App = Firebase.FirebaseApp.DefaultInstance;
+            db = FirebaseFirestore.DefaultInstance;
             isReady = true;
             // Set a flag here to indicate whether Firebase is ready to use by your app.
         } else {
@@ -27,8 +28,6 @@ public class FirestoreFunctions : MonoBehaviour
                 // Firebase Unity SDK is not safe to use here.
             }
         });
-        App = Firebase.FirebaseApp.DefaultInstance;
-        db = FirebaseFirestore.DefaultInstance;
     }
 
 
@@ -56,8 +55,9 @@ public class FirestoreFunctions : MonoBehaviour
         Debug.Log("Created user: " + user.UserId);
     }
 
-    public void UpdateScore(string username, int score)
+    public void UpdateScore(string username, int score, Action callback = null)
     {
+        Debug.Log("Updating score");
         db.Collection("users").Document(username).GetSnapshotAsync().ContinueWithOnMainThread(task =>
         {
             DocumentSnapshot snapshot = task.Result;
@@ -65,7 +65,27 @@ public class FirestoreFunctions : MonoBehaviour
             {
                 UserClass user = snapshot.ConvertTo<UserClass>();
                 user.Score += score;
-                db.Collection("users").Document(user.Username).SetAsync(user);
+                
+                db.Collection("users").Document(user.Username).SetAsync(user).ContinueWithOnMainThread(task =>
+                {
+                    callback?.Invoke();
+                });
+            }
+        });
+    }
+    public void UpdateDrops(string username, int drops, Action callback = null)
+    {
+        db.Collection("users").Document(username).GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            DocumentSnapshot snapshot = task.Result;
+            if (snapshot.Exists)
+            {
+                UserClass user = snapshot.ConvertTo<UserClass>();
+                user.Drops += drops;
+                db.Collection("users").Document(user.Username).SetAsync(user).ContinueWithOnMainThread(task =>
+                {
+                    callback?.Invoke();
+                });
             }
         });
     }
@@ -73,6 +93,7 @@ public class FirestoreFunctions : MonoBehaviour
 
     public void SubtractScore(string username, int score)
     {
+        Debug.Log("Subtracting Score");
         db.Collection("users").Document(username).GetSnapshotAsync().ContinueWithOnMainThread(task =>
         {
             DocumentSnapshot snapshot = task.Result;

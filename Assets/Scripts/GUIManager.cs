@@ -52,6 +52,10 @@ public class GUIManager : MonoBehaviour
                 LoadingGUI(); break;
             case GUISTATE.reviveprompt:
                 RevivePromptGUI(); break;
+            case GUISTATE.metaxar:
+                MetaXarGUI(); break;
+            case GUISTATE.metaxarclaimconfirmation:
+                MetaXarClaimConfirmationGUI(); break;
         }
 
     }
@@ -128,7 +132,16 @@ public class GUIManager : MonoBehaviour
         StartCoroutine(ReviveCountdown(5, txt_reviveCountdown));
     }
 
-
+    private void MetaXarGUI()
+    {
+        ResetGUI();
+        guiPanels[(int)Global.guiState].SetActive(true);
+    }
+    private void MetaXarClaimConfirmationGUI()
+    {
+        ResetGUI();
+        guiPanels[(int)Global.guiState].SetActive(true);
+    }
 
     private IEnumerator Counter(float dur, int min, int max, TMP_Text text)
     {
