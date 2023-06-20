@@ -1133,6 +1133,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
         type: 3}
+      propertyPath: normalObs.Array.size
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
       propertyPath: easyObs.Array.data[8]
       value: 
       objectReference: {fileID: 5518443297433295988, guid: ec6a4681dc61704449888082ca9b4d89,
@@ -1202,6 +1207,126 @@ PrefabInstance:
       propertyPath: easyObs.Array.data[19]
       value: 
       objectReference: {fileID: 5518443297433295988, guid: 2b8cc45a9ba04b3458014bf2eb839028,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: normalObs.Array.data[0]
+      value: 
+      objectReference: {fileID: 5538908822801460499, guid: a62ae2900905b4dd8849a4466b01d888,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: normalObs.Array.data[1]
+      value: 
+      objectReference: {fileID: 7129719756255527380, guid: 9b337c1bf7f054397b6d48cc1b192747,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: normalObs.Array.data[2]
+      value: 
+      objectReference: {fileID: 9060418605306221976, guid: 0c3d0f4f18b394ed0a39754a6fdf2be9,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: normalObs.Array.data[3]
+      value: 
+      objectReference: {fileID: 831267373856045625, guid: c0c948cc925fa404fb89d773cfe290f0,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: normalObs.Array.data[4]
+      value: 
+      objectReference: {fileID: 831267373856045625, guid: bcab1a783f1be67439d7bb1d58b0412b,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: normalObs.Array.data[5]
+      value: 
+      objectReference: {fileID: 831267373856045625, guid: 47e8080adcf34894b8f8417839db5ddb,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: normalObs.Array.data[6]
+      value: 
+      objectReference: {fileID: 831267373856045625, guid: 0bf02d6a17d845d43a9f0a8a6bf4eb23,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: normalObs.Array.data[7]
+      value: 
+      objectReference: {fileID: 9060418605306221976, guid: 9bba0b40e864e274eade8635e37cfc17,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: normalObs.Array.data[8]
+      value: 
+      objectReference: {fileID: 831267373856045625, guid: b4169d965567f43aca395050a4118b93,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: normalObs.Array.data[9]
+      value: 
+      objectReference: {fileID: 5538908822801460499, guid: 01072d42154904e4bb8160f26443b22c,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: normalObs.Array.data[10]
+      value: 
+      objectReference: {fileID: 7129719756255527380, guid: 174deaa5df44d584e978c4a0ba6f1496,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: normalObs.Array.data[11]
+      value: 
+      objectReference: {fileID: 7129719756255527380, guid: a0c93bcce3b1e9e478b97e0a4d77bde1,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: normalObs.Array.data[12]
+      value: 
+      objectReference: {fileID: 7129719756255527380, guid: e3326e4ad2e00584989a484a4749090c,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: normalObs.Array.data[13]
+      value: 
+      objectReference: {fileID: 9060418605306221976, guid: 553bfc0bc86413e4e9dadd8e61c08f02,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: normalObs.Array.data[14]
+      value: 
+      objectReference: {fileID: 7129719756255527380, guid: e3083f0dac7dce9428b550d3705a78b9,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: normalObs.Array.data[15]
+      value: 
+      objectReference: {fileID: 9060418605306221976, guid: a3947b78c5cb0ba43a171bcb93b4ecec,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: normalObs.Array.data[16]
+      value: 
+      objectReference: {fileID: 7129719756255527380, guid: 593ede442a944e34b87ef414ddb30b1b,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: normalObs.Array.data[17]
+      value: 
+      objectReference: {fileID: 5538908822801460499, guid: b62b43d72dc5fa04eb81ca22c038875e,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: normalObs.Array.data[18]
+      value: 
+      objectReference: {fileID: 7129719756255527380, guid: a4587d8cdd0ea1d41b8904c2c15ab2cc,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: normalObs.Array.data[19]
+      value: 
+      objectReference: {fileID: 7129719756255527380, guid: b36d397a3040a974b9cc98ec3aba4662,
         type: 3}
     - target: {fileID: 4717751119579413738, guid: 09687fd495012415ba577a0047168930,
         type: 3}
