@@ -1053,6 +1053,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
         type: 3}
+      propertyPath: hardObs.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
       propertyPath: normalObs.Array.size
       value: 20
       objectReference: {fileID: 0}
@@ -1067,6 +1072,66 @@ PrefabInstance:
       propertyPath: easyObs.Array.data[9]
       value: 
       objectReference: {fileID: 5518443297433295988, guid: 2b17c4e1ba976ed4da778db31239a49a,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: hardObs.Array.data[0]
+      value: 
+      objectReference: {fileID: 482063672949779628, guid: cd7d35df50124f841813a0f12dc4b024,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: hardObs.Array.data[1]
+      value: 
+      objectReference: {fileID: 482063672949779628, guid: 470bd4e2632cdd547aff68b409aae381,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: hardObs.Array.data[2]
+      value: 
+      objectReference: {fileID: 482063672949779628, guid: 80195d86f92c641459d9203f2306927c,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: hardObs.Array.data[3]
+      value: 
+      objectReference: {fileID: 482063672949779628, guid: aa24feabf49f06d488f2e4d82ecc6743,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: hardObs.Array.data[4]
+      value: 
+      objectReference: {fileID: 482063672949779628, guid: 8fee129698b1ebe4fbcc2f104563e429,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: hardObs.Array.data[5]
+      value: 
+      objectReference: {fileID: 482063672949779628, guid: d0813b6a38b0ac44fae65328331fb8e3,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: hardObs.Array.data[6]
+      value: 
+      objectReference: {fileID: 482063672949779628, guid: f199bd366705d1d49af1a8aa5697c927,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: hardObs.Array.data[7]
+      value: 
+      objectReference: {fileID: 482063672949779628, guid: ba86bc17c243f574f8754310ca50b58a,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: hardObs.Array.data[8]
+      value: 
+      objectReference: {fileID: 482063672949779628, guid: b16a496490b3cef44b061fa876798422,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: hardObs.Array.data[9]
+      value: 
+      objectReference: {fileID: 482063672949779628, guid: 2264cc0d4348308489e03a312e56ab65,
         type: 3}
     - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
         type: 3}
@@ -1127,6 +1192,36 @@ PrefabInstance:
       propertyPath: easyObs.Array.data[19]
       value: 
       objectReference: {fileID: 5518443297433295988, guid: 2b8cc45a9ba04b3458014bf2eb839028,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: hardObs.Array.data[10]
+      value: 
+      objectReference: {fileID: 482063672949779628, guid: 9fbec23f51448304788001c708d93288,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: hardObs.Array.data[11]
+      value: 
+      objectReference: {fileID: 482063672949779628, guid: 5e4bb14562916f149be6b7e92d6cb1f6,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: hardObs.Array.data[12]
+      value: 
+      objectReference: {fileID: 482063672949779628, guid: 3a7a140f02d3ec149af928c487fe6261,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: hardObs.Array.data[13]
+      value: 
+      objectReference: {fileID: 482063672949779628, guid: 386a5ed1360394c4298e5d6db5e2ec9d,
+        type: 3}
+    - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: hardObs.Array.data[14]
+      value: 
+      objectReference: {fileID: 482063672949779628, guid: a51d98d4e3bb920499d0895bda27af6c,
         type: 3}
     - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
         type: 3}

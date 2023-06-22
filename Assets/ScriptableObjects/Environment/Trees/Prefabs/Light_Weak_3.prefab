@@ -149,7 +149,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -1.6038473, y: -0.82452714}
-  m_ConnectedAnchor: {x: -4.7485843, y: 8.609276}
+  m_ConnectedAnchor: {x: 4.757407, y: 2.3496964}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -190,9 +190,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.58, y: 0.29}
+  m_Offset: {x: 0.46789354, y: 0.29}
   serializedVersion: 2
-  m_Radius: 0.6
+  m_Radius: 0.7121064
 --- !u!61 &6924169425580723017
 BoxCollider2D:
   m_ObjectHideFlags: 0
