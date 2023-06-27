@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
     public void ResetScene()
     {
         SceneManager.UnloadSceneAsync("GameScene");
+        Global.orb = 0;
         SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Additive);
     }
 
