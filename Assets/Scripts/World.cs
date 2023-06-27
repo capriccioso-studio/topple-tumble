@@ -43,7 +43,7 @@ public class World : MonoBehaviour
             var y= layer0.transform.GetChild(layer0.transform.childCount - 1).position.y +  (layer0.transform.localScale.z * 12.78f);
             // if(Random.Range(0, 100) < 50)
 
-            //for testing
+            //for testing  
             if(Random.Range(0, 10) < 10)
             {
                 SpawnNextOrb(y);
