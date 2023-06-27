@@ -11,7 +11,7 @@ public class Seed : MonoBehaviour
     public ParticleSystem explodeParticle;
     public Animator animator;
     public AudioSource audioSource;
-    public bool isTouchingPlatform = false, isDead = false, hasDied = false;
+    public bool isTouchingPlatform = false, isTouchingGround = false, isDead = false, hasDied = false;
     private float deathCount = 0;
     void Start()
     {
@@ -34,7 +34,7 @@ public class Seed : MonoBehaviour
         if(other.gameObject.CompareTag("Platform") && isDead == false)
         {
             deathCount = 0;
-            Global.score = (int)Mathf.Floor(transform.position.y);
+            Global.score = ((int)Mathf.Floor(transform.position.y) < 0)? 0 : (int)Mathf.Floor(transform.position.y);
             isTouchingPlatform = true;
         }
     }
@@ -47,11 +47,7 @@ public class Seed : MonoBehaviour
         float zangle = this.transform.rotation.eulerAngles.z;
         // animator.SetFloat("zangle", (zangle > 180) ? zangle - 360 : zangle);
 
-        if(!isTouchingPlatform)
-            deathCount += Time.deltaTime;
-        else
-            deathCount = 0;
-
+        deathCount = (!isTouchingPlatform || isTouchingGround)? deathCount + Time.deltaTime : 0;
         
         if(deathCount > 3 && !isDead)
         {
@@ -77,6 +73,12 @@ public class Seed : MonoBehaviour
         {
             audioSource.clip = seed.hitSound;
             audioSource.Play();
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other){
+        if(other.gameObject.CompareTag("Ground")){
+            isTouchingGround = true;
         }
     }
 
