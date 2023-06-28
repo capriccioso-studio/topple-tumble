@@ -6492,6 +6492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gui: {fileID: 0}
   ads: {fileID: 0}
+  txt_resultScore: {fileID: 1293716231}
 --- !u!114 &1360587569
 MonoBehaviour:
   m_ObjectHideFlags: 0
