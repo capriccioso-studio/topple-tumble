@@ -190,4 +190,17 @@ public class Platform : MonoBehaviour
         }
         
     }
+
+    void OnCollisionEnter2D(Collision2D other){
+        if(other.gameObject.CompareTag("Sticky Mushroom")){
+            StartCoroutine(SlowDownPlayer());
+            
+        }
+    }
+
+    IEnumerator SlowDownPlayer(){
+        rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
+        yield return new WaitForSeconds(3);
+        rb2d.constraints = RigidbodyConstraints2D.None;
+    }
 }

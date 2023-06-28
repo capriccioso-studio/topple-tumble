@@ -80,9 +80,9 @@ public class World : MonoBehaviour
 
         if(playerTransform.position.y < 50 - startingBase)
         {
-            InstantiateObs(easyObs, yPos);
+            // InstantiateObs(easyObs, yPos);
             //InstantiateObs(normalObs, yPos);
-            //InstantiateObs(hardObs, yPos); 
+            InstantiateObs(hardObs, yPos); 
         }   
         else if(playerTransform.position.y < 150  - startingBase)
         {

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - Ground
+  - Sticky Mushroom
   layers:
   - Default
   - TransparentFX

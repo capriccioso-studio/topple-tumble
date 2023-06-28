@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5024791754114913530}
   m_Layer: 0
   m_Name: Sticky_Mushroom
-  m_TagString: Untagged
+  m_TagString: Sticky Mushroom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8764832846634608322
 SpriteRenderer:
@@ -120,9 +120,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5800321, y: 0.15032172}
+  m_Offset: {x: 0.63510686, y: 0.14994578}
   serializedVersion: 2
-  m_Radius: 0.91531104
+  m_Radius: 0.8602371
 --- !u!50 &4167634481507126179
 Rigidbody2D:
   serializedVersion: 4
@@ -166,7 +166,7 @@ HingeJoint2D:
   m_BreakAction: 0
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -1.5708467, y: -0.9580201}
-  m_ConnectedAnchor: {x: -5.1553187, y: 2.1116822}
+  m_ConnectedAnchor: {x: -4.826846, y: 1.9357754}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
