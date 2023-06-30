@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Platform
+  - Ground
+  - Sticky Mushroom
+  - Shooting Mushroom
   layers:
   - Default
   - TransparentFX

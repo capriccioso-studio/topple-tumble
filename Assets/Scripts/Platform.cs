@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
+    public Seed seed;
     public PlatformScriptableObject platform;
     public GameObject lBooster, rBooster;
     public float lboostAmount = 0, rboostAmount = 0;
@@ -25,7 +26,6 @@ public class Platform : MonoBehaviour
 
         spriteRenderer.sprite = platform.platformSprite;
         rb2d = this.gameObject.AddComponent<Rigidbody2D>();
-
 
         rb2d.sharedMaterial = platform.physMat;
         rb2d.mass = platform.mass * 0.25f;
@@ -189,5 +189,26 @@ public class Platform : MonoBehaviour
             yield return null;
         }
         
+    }
+
+    void OnCollisionEnter2D(Collision2D other){
+        if(other.gameObject.CompareTag("Sticky Mushroom")){
+            StartCoroutine(SlowDownPlayer());
+        }
+        if(other.gameObject.CompareTag("Shooting Mushroom")){
+            if(other.gameObject.transform.localScale.x > 0){
+                Vector2 move = new Vector2(5, 7);
+                rb2d.AddForce(move, ForceMode2D.Impulse);
+            }else{
+                Vector2 move = new Vector2(-5, 7);
+                rb2d.AddForce(move, ForceMode2D.Impulse);
+            }
+        }
+    }
+
+    private IEnumerator SlowDownPlayer(){
+        rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
+        yield return new WaitForSeconds(2);
+        rb2d.constraints = RigidbodyConstraints2D.None;
     }
 }
