@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Seed : MonoBehaviour
 {
+    public CamFollow cam;
     public SeedScriptableObject seed;
     private Rigidbody2D rb2d;
     private SpriteRenderer spriteRenderer;
@@ -55,6 +56,7 @@ public class Seed : MonoBehaviour
             Global.gameManager.Die();
             var iExplodeParticle = Instantiate(explodeParticle, transform.position, Quaternion.identity);
             iExplodeParticle.Play();
+            StartCoroutine(cam.Shake(.15f, .4f));
             audioSource.clip = seed.deathSound;
             audioSource.Play();
             gameObject.SetActive(false);

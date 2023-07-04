@@ -8,7 +8,7 @@ public class Platform : MonoBehaviour
     public PlatformScriptableObject platform;
     public GameObject lBooster, rBooster;
     public float lboostAmount = 0, rboostAmount = 0;
-    public ParticleSystem rParticles, lParticles;
+    public ParticleSystem rParticles, lParticles, wind;
     private Rigidbody2D rb2d;
 
     private bool isLeftBoosting, isRightBoosting;
@@ -199,9 +199,11 @@ public class Platform : MonoBehaviour
             if(other.gameObject.transform.localScale.x > 0){
                 Vector2 move = new Vector2(5, 7);
                 rb2d.AddForce(move, ForceMode2D.Impulse);
+                wind.Play();
             }else{
                 Vector2 move = new Vector2(-5, 7);
                 rb2d.AddForce(move, ForceMode2D.Impulse);
+                wind.Play();
             }
         }
     }
