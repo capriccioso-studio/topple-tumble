@@ -10,12 +10,14 @@ public class Platform : MonoBehaviour
     public float lboostAmount = 0, rboostAmount = 0;
     public ParticleSystem rParticles, lParticles, wind;
     private Rigidbody2D rb2d;
+    // public Transform camera = null;
 
     private bool isLeftBoosting, isRightBoosting;
     private SpriteRenderer spriteRenderer;
     private PolygonCollider2D polycol2D;
     public AudioSource lBoostAudio, rBoostAudio;
     public Animator animator;
+    public CamFollow cam;
 
     void Start()
     {
@@ -33,6 +35,7 @@ public class Platform : MonoBehaviour
         rb2d.angularDrag = platform.angularDrag + 5;
         rb2d.gravityScale = platform.gravityScale * 0.15f;
         animator = GetComponent<Animator>();
+        cam = FindObjectOfType<CamFollow>();
     }
 
     /// <summary>
@@ -200,10 +203,14 @@ public class Platform : MonoBehaviour
                 Vector2 move = new Vector2(5, 7);
                 rb2d.AddForce(move, ForceMode2D.Impulse);
                 wind.Play();
+                StartCoroutine(cam.Shake(1, 1));
+                
             }else{
                 Vector2 move = new Vector2(-5, 7);
                 rb2d.AddForce(move, ForceMode2D.Impulse);
                 wind.Play();
+                // StartCoroutine(cam.Shake(.15f, .4f));
+                StartCoroutine(cam.Shake(1, 1));
             }
         }
     }

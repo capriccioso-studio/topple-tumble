@@ -56,7 +56,6 @@ public class Seed : MonoBehaviour
             Global.gameManager.Die();
             var iExplodeParticle = Instantiate(explodeParticle, transform.position, Quaternion.identity);
             iExplodeParticle.Play();
-            StartCoroutine(cam.Shake(.15f, .4f));
             audioSource.clip = seed.deathSound;
             audioSource.Play();
             gameObject.SetActive(false);
