@@ -35,6 +35,7 @@ public class Platform : MonoBehaviour
         rb2d.angularDrag = platform.angularDrag + 5;
         rb2d.gravityScale = platform.gravityScale * 0.15f;
         animator = GetComponent<Animator>();
+
         cam = FindObjectOfType<CamFollow>();
         cam.offset = 0;
     }
@@ -217,7 +218,8 @@ public class Platform : MonoBehaviour
     private IEnumerator SlowDownPlayer(Collision2D other){
         var joint = gameObject.AddComponent<FixedJoint2D>();
         joint.connectedBody = other.rigidbody;
-        yield return new WaitForSeconds(3);
+        other.transform.GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(2);
         Destroy(joint);
     }
 }
