@@ -36,6 +36,7 @@ public class Platform : MonoBehaviour
         rb2d.gravityScale = platform.gravityScale * 0.15f;
         animator = GetComponent<Animator>();
         cam = FindObjectOfType<CamFollow>();
+        cam.offset = 0;
     }
 
     /// <summary>
@@ -196,7 +197,7 @@ public class Platform : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other){
         if(other.gameObject.CompareTag("Sticky Mushroom")){
-            StartCoroutine(SlowDownPlayer());
+            StartCoroutine(SlowDownPlayer(other));
         }
         if(other.gameObject.CompareTag("Shooting Mushroom")){
             if(other.gameObject.transform.localScale.x > 0){
@@ -204,20 +205,19 @@ public class Platform : MonoBehaviour
                 rb2d.AddForce(move, ForceMode2D.Impulse);
                 wind.Play();
                 StartCoroutine(cam.Shake(1, 1));
-                
             }else{
                 Vector2 move = new Vector2(-5, 7);
                 rb2d.AddForce(move, ForceMode2D.Impulse);
                 wind.Play();
-                // StartCoroutine(cam.Shake(.15f, .4f));
                 StartCoroutine(cam.Shake(1, 1));
             }
         }
     }
 
-    private IEnumerator SlowDownPlayer(){
-        rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
-        yield return new WaitForSeconds(2);
-        rb2d.constraints = RigidbodyConstraints2D.None;
+    private IEnumerator SlowDownPlayer(Collision2D other){
+        var joint = gameObject.AddComponent<FixedJoint2D>();
+        joint.connectedBody = other.rigidbody;
+        yield return new WaitForSeconds(3);
+        Destroy(joint);
     }
 }
