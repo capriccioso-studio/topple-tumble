@@ -14,6 +14,7 @@ public class GUIManager : MonoBehaviour
 
     [Header("Revive")]
     public TMP_Text txt_reviveCountdown;
+    public AudioSource bm;
     void Start()
     {
         ChangeGUI((int)GUISTATE.mainmenu);
@@ -73,10 +74,13 @@ public class GUIManager : MonoBehaviour
         ResetGUI();
         guiPanels[(int)Global.guiState].SetActive(true);
         Time.timeScale = 1;        
-
+        if(!bm.isPlaying){
+            bm.Play();
+        }
     }
     private void MainMenuGUI()
     {
+        bm.Stop();
         ResetGUI();
         guiPanels[(int)Global.guiState].SetActive(true);
     }
@@ -108,7 +112,7 @@ public class GUIManager : MonoBehaviour
     }
     private void InventoryGUI()
     {
-        
+        guiPanels[(int)Global.guiState].SetActive(true);
     }
     private void ConfirmationDialogGUI()
     {
