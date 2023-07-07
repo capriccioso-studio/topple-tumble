@@ -2052,6 +2052,7 @@ MonoBehaviour:
   smoothTime: 0.4
   minX: -2.35
   maxX: 2.35
+  start: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

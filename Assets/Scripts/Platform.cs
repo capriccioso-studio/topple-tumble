@@ -8,14 +8,16 @@ public class Platform : MonoBehaviour
     public PlatformScriptableObject platform;
     public GameObject lBooster, rBooster;
     public float lboostAmount = 0, rboostAmount = 0;
-    public ParticleSystem rParticles, lParticles;
+    public ParticleSystem rParticles, lParticles, wind;
     private Rigidbody2D rb2d;
+    // public Transform camera = null;
 
     private bool isLeftBoosting, isRightBoosting;
     private SpriteRenderer spriteRenderer;
     private PolygonCollider2D polycol2D;
     public AudioSource lBoostAudio, rBoostAudio;
     public Animator animator;
+    public CamFollow cam;
 
     void Start()
     {
@@ -33,6 +35,9 @@ public class Platform : MonoBehaviour
         rb2d.angularDrag = platform.angularDrag + 5;
         rb2d.gravityScale = platform.gravityScale * 0.15f;
         animator = GetComponent<Animator>();
+
+        cam = FindObjectOfType<CamFollow>();
+        cam.offset = 0;
     }
 
     /// <summary>
@@ -193,22 +198,28 @@ public class Platform : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other){
         if(other.gameObject.CompareTag("Sticky Mushroom")){
-            StartCoroutine(SlowDownPlayer());
+            StartCoroutine(SlowDownPlayer(other));
         }
         if(other.gameObject.CompareTag("Shooting Mushroom")){
             if(other.gameObject.transform.localScale.x > 0){
                 Vector2 move = new Vector2(5, 7);
                 rb2d.AddForce(move, ForceMode2D.Impulse);
+                wind.Play();
+                StartCoroutine(cam.Shake(1, 1));
             }else{
                 Vector2 move = new Vector2(-5, 7);
                 rb2d.AddForce(move, ForceMode2D.Impulse);
+                wind.Play();
+                StartCoroutine(cam.Shake(1, 1));
             }
         }
     }
 
-    private IEnumerator SlowDownPlayer(){
-        rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
+    private IEnumerator SlowDownPlayer(Collision2D other){
+        var joint = gameObject.AddComponent<FixedJoint2D>();
+        joint.connectedBody = other.rigidbody;
+        other.transform.GetComponent<BoxCollider2D>().enabled = false;
         yield return new WaitForSeconds(2);
-        rb2d.constraints = RigidbodyConstraints2D.None;
+        Destroy(joint);
     }
 }

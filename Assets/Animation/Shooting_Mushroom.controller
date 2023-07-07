@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1102 &-1301998064024894965
+--- !u!1102 &-2098097582589325488
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
@@ -34,13 +34,7 @@ AnimatorController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Shooting_Mushroom
   serializedVersion: 5
-  m_AnimatorParameters:
-  - m_Name: hit
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+  m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -64,8 +58,8 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: -1301998064024894965}
-    m_Position: {x: 300, y: 100, z: 0}
+    m_State: {fileID: -2098097582589325488}
+    m_Position: {x: 330, y: -10, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -75,4 +69,4 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: -1301998064024894965}
+  m_DefaultState: {fileID: -2098097582589325488}

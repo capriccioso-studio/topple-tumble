@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Seed : MonoBehaviour
 {
+    public CamFollow cam;
     public SeedScriptableObject seed;
     private Rigidbody2D rb2d;
     private SpriteRenderer spriteRenderer;
