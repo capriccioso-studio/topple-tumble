@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public AdManager ads = null;
     private GameDatabase gameDB = null;
     public TMP_Text txt_resultScore = null;
+    public AudioSource bm;
     void Awake()
     {
         gameDB = GetComponent<GameDatabase>();
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(3);
         SceneManager.UnloadSceneAsync("Splash");
+        bm.Play();
     }
 
     public void  InitializeGameScene(SeedScriptableObject seedtype, EnvironmentScriptableObject[] environmentType, PlatformScriptableObject platformtype)
