@@ -41,18 +41,16 @@ public class World : MonoBehaviour
         if(playerTransform.position.y > (layer0.transform.GetChild(layer0.transform.childCount - 1).transform.position.y ) - (layer0.transform.localScale.z * 12.78) * 0.5)
         {
             var y= layer0.transform.GetChild(layer0.transform.childCount - 1).position.y +  (layer0.transform.localScale.z * 12.78f);
-            if(Random.Range(0, 100) < 50)
+            // if(Random.Range(0, 100) < 50)
+
+            //for testing  
+            if(Random.Range(0, 10) < 10)
             {
                 SpawnNextOrb(y);
             }
 
             SpawnNextObstacle(y);
         }
-        
-            
-
-
-
     }
 
     public void DuplicateBackground(GameObject layer)
@@ -82,7 +80,9 @@ public class World : MonoBehaviour
 
         if(playerTransform.position.y < 50 - startingBase)
         {
-            InstantiateObs(easyObs, yPos);
+             InstantiateObs(easyObs, yPos);
+            //InstantiateObs(normalObs, yPos);
+            // InstantiateObs(hardObs, yPos); 
         }   
         else if(playerTransform.position.y < 150  - startingBase)
         {
@@ -133,6 +133,7 @@ public class World : MonoBehaviour
                 this.transform.rotation,
                 layer0.transform
         );
+
     }
 
 }

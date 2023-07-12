@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -21.07}
 --- !u!114 &7834127981064152585
 MonoBehaviour:
@@ -53,6 +53,7 @@ MonoBehaviour:
   jointStrength: 75
   explodeParticle: {fileID: 8267939708736060204, guid: 9a5e344012aa94750b3bc012e0a6bf3b,
     type: 3}
+  explodeOnBump: 0
 --- !u!212 &9041162857578682762
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -148,7 +149,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -1.6038473, y: -0.82452714}
-  m_ConnectedAnchor: {x: -4.48005, y: 4.273098}
+  m_ConnectedAnchor: {x: 4.757407, y: 2.3496964}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -189,9 +190,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.58, y: 0.29}
+  m_Offset: {x: 0.46789354, y: 0.29}
   serializedVersion: 2
-  m_Radius: 0.6
+  m_Radius: 0.7121064
 --- !u!61 &6924169425580723017
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -224,7 +225,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.99, y: -0.76}
+  m_Offset: {x: -0.99, y: -0.6672982}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -235,5 +236,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.34, y: 1.09}
+  m_Size: {x: 0.3399999, y: 1.2754037}
   m_EdgeRadius: 0

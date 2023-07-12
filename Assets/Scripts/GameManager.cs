@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
@@ -7,11 +8,13 @@ public class GameManager : MonoBehaviour
     public GUIManager gui = null;
     public AdManager ads = null;
     private GameDatabase gameDB = null;
+    public TMP_Text txt_resultScore = null;
     void Awake()
     {
         gameDB = GetComponent<GameDatabase>();
         gui = GetComponent<GUIManager>();
         ads = GetComponent<AdManager>();
+        
         Global.gameManager = this;
 
         SceneManager.LoadScene("Splash", LoadSceneMode.Additive);
@@ -53,6 +56,8 @@ public class GameManager : MonoBehaviour
     public void ResetScene()
     {
         SceneManager.UnloadSceneAsync("GameScene");
+        Global.orb = 0;
+        txt_resultScore.SetText(0 + "");
         SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Additive);
     }
 
