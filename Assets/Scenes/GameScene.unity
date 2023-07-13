@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  seed: {fileID: 11400000, guid: 63dfcd5a4f843417a814b103d47893a3, type: 2}
+  seed: {fileID: 11400000, guid: 4a821d1873b1e4999bb06c99fc3a69e3, type: 2}
   polycol2D: {fileID: 0}
   explodeParticle: {fileID: 19830420, guid: bf27844d805522447933dc21e304c99b, type: 3}
   animator: {fileID: 0}

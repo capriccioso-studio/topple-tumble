@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2bc3500176af4cdab42e324654c54d4, type: 3}
   m_Name: Nica
   m_EditorClassIdentifier: 
-  seedtype: 0
+  seedtype: 1
   seedName: Nica
   mass: 5
   gravityScale: 5

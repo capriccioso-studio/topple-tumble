@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -30,6 +30,16 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void changeSeed(){
+        Global.seedtype = gameDB.seedTypes[1];
+        Debug.Log("changed");
+        Debug.Log(Global.seedtype);
+    }
+
+    public void changePlatform(){
+
+    }
+
     public IEnumerator LoadingScreen()
     {
 
@@ -40,7 +50,7 @@ public class GameManager : MonoBehaviour
         SceneManager.UnloadSceneAsync("Splash");
     }
 
-    public void  InitializeGameScene(SeedScriptableObject seedtype, EnvironmentScriptableObject[] environmentType, PlatformScriptableObject platformtype)
+    public void InitializeGameScene(SeedScriptableObject seedtype, EnvironmentScriptableObject[] environmentType, PlatformScriptableObject platformtype)
     {
         Global.seedtype = seedtype;
         Global.platformtype = platformtype;
