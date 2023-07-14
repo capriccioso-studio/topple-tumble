@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         if(!SceneManager.GetSceneByName("GameScene").isLoaded)
             LoadGameScene();
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         SceneManager.UnloadSceneAsync("Splash");
     }
 
