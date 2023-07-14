@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync("GameScene");
         Global.orb = 0;
+        if (txt_resultScore is not null)
         txt_resultScore.SetText(0 + "");
         SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Additive);
     }

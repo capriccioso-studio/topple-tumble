@@ -104,7 +104,7 @@ public class GUIManager : MonoBehaviour
     {
         ResetGUI();
         guiPanels[(int)Global.guiState].SetActive(true);
-        Time.timeScale = 0;        
+       Time.timeScale = 0;        
     }
     private void InventoryGUI()
     {
