@@ -30,16 +30,6 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void changeSeed(){
-        Global.seedtype = gameDB.seedTypes[1];
-        Debug.Log("changed");
-        Debug.Log(Global.seedtype);
-    }
-
-    public void changePlatform(){
-
-    }
-
     public IEnumerator LoadingScreen()
     {
 

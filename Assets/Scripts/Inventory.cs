@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public SeedScriptableObject seed;
     void Start()
     {
         
@@ -14,5 +14,11 @@ public class Inventory : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void changeSeed(){
+        Global.seedtype = seed;
+        Debug.Log("changed");
+        Debug.Log(Global.seedtype);
     }
 }
