@@ -35,6 +35,9 @@ public class Obstacle : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) 
     {
+
+        if(other.gameObject.CompareTag("Player"))
+            Handheld.Vibrate();
         if(explodeOnBump)
         {
             if(other.gameObject.CompareTag("Player"))
