@@ -5,6 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public SeedScriptableObject seed;
+    public PlatformScriptableObject platform;
     void Start()
     {
         
@@ -20,5 +21,11 @@ public class Inventory : MonoBehaviour
         Global.seedtype = seed;
         Debug.Log("changed");
         Debug.Log(Global.seedtype);
+    }
+
+    public void changePlatform(){
+        Global.platformtype = platform;
+        Debug.Log("changed");
+        Debug.Log(Global.platformtype);
     }
 }
