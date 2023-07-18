@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 070768f4b6bed1748af4ed9e237e9b09
+guid: 0164db233209e5b4492725f345dff3f3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,22 +119,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pausePadding_0
+      name: gameovertext_image_0
       rect:
         serializedVersion: 2
-        x: 62
-        y: 698
-        width: 1160
-        height: 673
+        x: 97
+        y: 248
+        width: 834
+        height: 96
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 209, y: 66, z: 209, w: 145}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c09e48032fdeed4888ef15d2d5682d9
-      internalID: -799274722
+      spriteID: 65d9dbbc2c6817845b4c817427f2a4b2
+      internalID: -317694857
       vertices: []
       indices: 
       edges: []
@@ -150,7 +150,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      pausePadding_0: -799274722
+      gameovertext_image_2: -371315366
+      gameovertext_image_7: 2086537172
+      gameovertext_image_0: -317694857
+      gameovertext_image_4: -1267840439
+      gameovertext_image_6: 1372614649
+      gameovertext_image_3: 1835655378
+      gameovertext_image_5: -1541704821
+      gameovertext_image_1: -306976720
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

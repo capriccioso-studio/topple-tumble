@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 070768f4b6bed1748af4ed9e237e9b09
+guid: 778af4a30279dfe4986c36f10826ca95
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,22 +119,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pausePadding_0
+      name: gameOverUI_0
       rect:
         serializedVersion: 2
-        x: 62
-        y: 698
-        width: 1160
-        height: 673
+        x: 308
+        y: 1813
+        width: 666
+        height: 449
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 209, y: 66, z: 209, w: 145}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c09e48032fdeed4888ef15d2d5682d9
-      internalID: -799274722
+      spriteID: d9fe1af5976d97243b07ad5ed61f55f1
+      internalID: 1677751546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gameOverUI_1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 481
+        width: 1197
+        height: 1332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 847a575ce48664248bfb43c9388ac281
+      internalID: -1011759203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gameOverUI_2
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 112
+        width: 330
+        height: 332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a7ca47518483d845948e345cc2b49f8
+      internalID: 1336624148
       vertices: []
       indices: 
       edges: []
@@ -150,7 +192,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      pausePadding_0: -799274722
+      gameOverUI_2: 1336624148
+      gameOverUI_1: -1011759203
+      gameOverUI_0: 1677751546
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

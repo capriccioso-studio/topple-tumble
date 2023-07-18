@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 070768f4b6bed1748af4ed9e237e9b09
+guid: 9e1eaa6f52a33a947842fe2debf322a1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -117,28 +117,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: pausePadding_0
-      rect:
-        serializedVersion: 2
-        x: 62
-        y: 698
-        width: 1160
-        height: 673
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 209, y: 66, z: 209, w: 145}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c09e48032fdeed4888ef15d2d5682d9
-      internalID: -799274722
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -149,8 +128,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      pausePadding_0: -799274722
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
