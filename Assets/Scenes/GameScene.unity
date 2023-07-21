@@ -6523,7 +6523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seed: {fileID: 422685228}
-  platform: {fileID: 11400000, guid: 965b37504aba947258b3305fcdbf610d, type: 2}
+  platform: {fileID: 0}
   lBooster: {fileID: 2074769612}
   rBooster: {fileID: 2113106939}
   lboostAmount: 5
@@ -6658,7 +6658,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1822579885}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 17b766e8a1c64a64a89addd762d1fabd, type: 2}
   m_CullingMode: 0
