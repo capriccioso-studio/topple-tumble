@@ -6523,7 +6523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seed: {fileID: 422685228}
-  platform: {fileID: 0}
+  platform: {fileID: 11400000, guid: 965b37504aba947258b3305fcdbf610d, type: 2}
   lBooster: {fileID: 2074769612}
   rBooster: {fileID: 2113106939}
   lboostAmount: 5

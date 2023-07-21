@@ -19,8 +19,8 @@ public class Inventory : MonoBehaviour
 
     public void changeSeed(){
         Global.seedtype = seed;
-        Debug.Log(Global.platformtype);
-        Debug.Log(Global.platformtype.platformSprite);
+        Debug.Log(Global.seedtype);
+        Debug.Log(Global.seedtype.soloSprite);
     }
 
     public void changePlatform(){

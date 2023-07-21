@@ -20,9 +20,7 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene("Splash", LoadSceneMode.Additive);
         
-        InitializeGameScene(gameDB.seedTypes[0], gameDB.environmentTypes, gameDB.platformTypes[1]);
-        Debug.Log(Global.platformtype.platformSprite);
-        Debug.Log(Global.platformtype);
+        InitializeGameScene(gameDB.seedTypes[0], gameDB.environmentTypes, gameDB.platformTypes[0]);
         StartCoroutine(LoadingScreen());
     }
 
