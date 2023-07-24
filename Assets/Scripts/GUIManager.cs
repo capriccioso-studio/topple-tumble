@@ -94,7 +94,7 @@ public class GUIManager : MonoBehaviour
     }
     private void SettingsGUI()
     {
-        
+        guiPanels[(int)Global.guiState].SetActive(true);
     }
     private void SettingsAboutGUI()
     {
