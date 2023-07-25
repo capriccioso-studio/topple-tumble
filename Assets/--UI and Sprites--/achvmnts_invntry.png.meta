@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -117,7 +117,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: achvmnts_invntry_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 284
+        width: 988
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77ca081a2c3b11b4a8965efd5fc9de19
+      internalID: 989484486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: achvmnts_invntry_12
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 136
+        width: 741
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 108aa358508823d429aef31f03cae9db
+      internalID: -1185889790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -128,7 +170,28 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      achvmnts_invntry_5: -1836140375
+      achvmnts_invntry_8: 908870610
+      achvmnts_invntry_9: -1591226569
+      achvmnts_invntry_4: 692443582
+      achvmnts_invntry_13: -1495691542
+      achvmnts_invntry_16: 132330150
+      achvmnts_invntry_20: 361353612
+      achvmnts_invntry_1: 525559124
+      achvmnts_invntry_11: -1907469120
+      achvmnts_invntry_19: 575579015
+      achvmnts_invntry_2: 492347898
+      achvmnts_invntry_0: 989484486
+      achvmnts_invntry_3: 489196782
+      achvmnts_invntry_6: -1957096803
+      achvmnts_invntry_10: 1919401141
+      achvmnts_invntry_15: -865898173
+      achvmnts_invntry_18: 2141164703
+      achvmnts_invntry_12: -1185889790
+      achvmnts_invntry_14: -837112187
+      achvmnts_invntry_7: -1905065293
+      achvmnts_invntry_17: 174282313
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
