@@ -3139,7 +3139,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 276644578}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1607070825}
+        m_TargetAssemblyTypeName: ShopItem, Assembly-CSharp
+        m_MethodName: EquipPlatform
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1360587568}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ResetScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &276644578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5101,7 +5125,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 461648853}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2035593174}
+        m_TargetAssemblyTypeName: ShopItem, Assembly-CSharp
+        m_MethodName: EquipSeed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1360587568}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ResetScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &461648853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12109,7 +12157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1097090413
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16956,6 +17004,7 @@ GameObject:
   - component: {fileID: 1607070822}
   - component: {fileID: 1607070824}
   - component: {fileID: 1607070823}
+  - component: {fileID: 1607070825}
   m_Layer: 0
   m_Name: ShopItem
   m_TagString: Untagged
@@ -17023,6 +17072,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607070821}
   m_CullTransparentMesh: 1
+--- !u!114 &1607070825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607070821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13cc3ce2ab4baf54f99d34eeeaaa554e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seed: {fileID: 0}
+  platform: {fileID: 11400000, guid: 965b37504aba947258b3305fcdbf610d, type: 2}
 --- !u!1 &1617437826
 GameObject:
   m_ObjectHideFlags: 0
@@ -23523,6 +23586,7 @@ GameObject:
   - component: {fileID: 2035593171}
   - component: {fileID: 2035593173}
   - component: {fileID: 2035593172}
+  - component: {fileID: 2035593174}
   m_Layer: 0
   m_Name: ShopItem
   m_TagString: Untagged
@@ -23590,6 +23654,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2035593170}
   m_CullTransparentMesh: 1
+--- !u!114 &2035593174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035593170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13cc3ce2ab4baf54f99d34eeeaaa554e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seed: {fileID: 11400000, guid: 63dfcd5a4f843417a814b103d47893a3, type: 2}
+  platform: {fileID: 0}
 --- !u!1 &2049020837
 GameObject:
   m_ObjectHideFlags: 0

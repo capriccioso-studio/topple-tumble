@@ -25,4 +25,6 @@ public class Inventory : MonoBehaviour
         Destroy  (ItemTemplate);
         Destroy  (ItemTemplate2);
     }
+
+
 }
