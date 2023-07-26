@@ -33,6 +33,7 @@ public enum SEEDTYPE
 public enum PLATFORMTYPE
 {
   basic,
+  normal,
 }
 
 public enum ADREWARDTYPE

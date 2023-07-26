@@ -10,8 +10,6 @@ public class Platform : MonoBehaviour
     public float lboostAmount = 0, rboostAmount = 0;
     public ParticleSystem rParticles, lParticles, wind;
     private Rigidbody2D rb2d;
-    // public Transform camera = null;
-
     private bool isLeftBoosting, isRightBoosting;
     private SpriteRenderer spriteRenderer;
     private PolygonCollider2D polycol2D;
@@ -21,23 +19,23 @@ public class Platform : MonoBehaviour
 
     void Start()
     {
-        Global.platform = gameObject;
         platform = Global.platformtype;
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+        rb2d = this.gameObject.AddComponent<Rigidbody2D>();
 
         spriteRenderer.sprite = platform.platformSprite;
-        rb2d = this.gameObject.AddComponent<Rigidbody2D>();
 
         rb2d.sharedMaterial = platform.physMat;
         rb2d.mass = platform.mass * 0.25f;
         rb2d.drag = platform.drag * 0.25f;
         rb2d.angularDrag = platform.angularDrag + 5;
         rb2d.gravityScale = platform.gravityScale * 0.15f;
-        animator = GetComponent<Animator>();
+        // animator = GetComponent<Animator>();
 
         cam = FindObjectOfType<CamFollow>();
         cam.offset = 0;
+
+        Global.platform = this.gameObject;
     }
 
     /// <summary>
@@ -109,7 +107,7 @@ public class Platform : MonoBehaviour
 
         }
 
-        animator.SetFloat("boost", (rboostAmount + lboostAmount) / 2);
+        // animator.SetFloat("boost", (rboostAmount + lboostAmount) / 2);
 
         if(Input.GetKey(KeyCode.Space) || isLeftBoosting)
         {

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public AdManager ads = null;
     private GameDatabase gameDB = null;
     public TMP_Text txt_resultScore = null;
+    
     void Awake()
     {
         gameDB = GetComponent<GameDatabase>();
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
         SceneManager.UnloadSceneAsync("Splash");
     }
 
-    public void  InitializeGameScene(SeedScriptableObject seedtype, EnvironmentScriptableObject[] environmentType, PlatformScriptableObject platformtype)
+    public void InitializeGameScene(SeedScriptableObject seedtype, EnvironmentScriptableObject[] environmentType, PlatformScriptableObject platformtype)
     {
         Global.seedtype = seedtype;
         Global.platformtype = platformtype;
