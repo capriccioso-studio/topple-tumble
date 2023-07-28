@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Default
   m_EditorClassIdentifier: 
   platformtype: 1
-  environmentName: Normal
+  environmentName: Default
   boosterStrength: 5
   mass: 5
   drag: 5
