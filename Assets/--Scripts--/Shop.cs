@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Shop : MonoBehaviour
 {
     public GameObject SeedItemTemplate, PlatformItemTemplate; //this script duplicates the items to 15 times
-    GameObject seedItem, platformItem;
-    public SeedItems[] seed;
-    public PlatformItems[] platform;
+    GameObject seedItem, platformItem, test;
+    public SeedItems[] seeds;
+    public PlatformItems[] platforms;
 
     [SerializeField] Transform SeedShopScrollView;
     [SerializeField] Transform PlatformShopScrollView;
@@ -18,26 +19,24 @@ public class Shop : MonoBehaviour
         SeedItemTemplate = SeedShopScrollView.GetChild (0).gameObject;
         PlatformItemTemplate = PlatformShopScrollView.GetChild (0).gameObject;
 
-        foreach(SeedItems seed in seed)
+        foreach(SeedItems seed in seeds)
         {
             seedItem = Instantiate (SeedItemTemplate, SeedShopScrollView);
-            // seed.itemRef = seedItem;
-
-            seedItem.transform.GetComponent<Button>().onClick.AddListener(() => {
-                BuyItem(seed);
-            });
+            seed.itemRef = seedItem;
             
-            // foreach(Transform child in seedItem.transform){
-            //     if(child.gameObject.name = "price")
-            //     {
-            //         child.gameObject.GetComponent<Text>().text = seed.cost.ToString();
-            //     }else if(child.gameObject.name = "seed"){
-            //         child.gameObject.GetComponent<Image>().sprite = seed.image;
-            //     }
-            // }
+            foreach(Transform child in seedItem.transform){
+                if(child.gameObject.name == "money icon")
+                {
+                    child.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = seed.cost + "";
+                }
+                else if(child.gameObject.name == "seed")
+                {
+                    child.gameObject.GetComponent<Image>().sprite = seed.image;
+                }
+            }
         }
 
-        foreach(PlatformItems platform in platform)
+        foreach(PlatformItems platform in platforms)
         {
             platformItem = Instantiate (PlatformItemTemplate, PlatformShopScrollView);
         }
@@ -51,13 +50,6 @@ public class Shop : MonoBehaviour
 
         Destroy  (SeedItemTemplate);
         Destroy  (PlatformItemTemplate);
-    }
-
-    public void BuyItem(SeedItems seed){
-        Debug.Log("Clicked");
-        if(Global.orb >= seed.cost){
-            Global.orb -= seed.cost;
-        }
     }
 }
 
