@@ -34,6 +34,10 @@ public class Shop : MonoBehaviour
                     child.gameObject.GetComponent<Image>().sprite = seed.image;
                 }
             }
+
+            seedItem.transform.GetChild(2).gameObject.GetComponent<Button>().onClick.AddListener(() => {
+                BuySeed(seed);
+            });  
         }
 
         foreach(PlatformItems platform in platforms)
@@ -51,12 +55,34 @@ public class Shop : MonoBehaviour
                     child.gameObject.GetComponent<Image>().sprite = platform.image;
                 }
             }
-        }
 
+            platformItem.transform.GetChild(2).gameObject.GetComponent<Button>().onClick.AddListener(() => {
+                BuyPlatform(platform);
+            });
+        }
 
         Destroy  (SeedItemTemplate);
         Destroy  (PlatformItemTemplate);
     }
+
+    public void BuySeed(SeedItems seed){
+        if(Global.orb >= seed.cost){
+            Global.orb -= seed.cost;
+            Button button = seed.itemRef.transform.GetChild(2).gameObject.GetComponent<Button>();
+            button.interactable = false;
+            button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
+        }
+    }
+
+    public void BuyPlatform(PlatformItems platform){
+        if(Global.orb >= platform.cost){
+            Global.orb -= platform.cost;
+            Button button = platform.itemRef.transform.GetChild(2).gameObject.GetComponent<Button>();
+            button.interactable = false;
+            button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
+        }
+    }
+
 }
 
 [System.Serializable]
