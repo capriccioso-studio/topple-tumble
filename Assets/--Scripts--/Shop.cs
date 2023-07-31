@@ -39,14 +39,20 @@ public class Shop : MonoBehaviour
         foreach(PlatformItems platform in platforms)
         {
             platformItem = Instantiate (PlatformItemTemplate, PlatformShopScrollView);
+            platform.itemRef = platformItem;
+            
+            foreach(Transform child in platformItem.transform){
+                if(child.gameObject.name == "money icon")
+                {
+                    child.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = platform.cost + "";
+                }
+                else if(child.gameObject.name == "platform")
+                {
+                    child.gameObject.GetComponent<Image>().sprite = platform.image;
+                }
+            }
         }
 
-        // for(int i = 0; i<15; i++)
-        // {
-        //     seedItem = Instantiate (SeedItemTemplate, SeedShopScrollView);
-        //     platformItem = Instantiate (PlatformItemTemplate, PlatformShopScrollView);
-            
-        // }
 
         Destroy  (SeedItemTemplate);
         Destroy  (PlatformItemTemplate);
