@@ -61,7 +61,8 @@ public class Shop : MonoBehaviour
             platform.itemRef = platformItem;
             
             /*Checks if gameobject exists, then applies the information to the platform item template*/
-            foreach(Transform child in platformItem.transform){
+            foreach(Transform child in platformItem.transform)
+            {
                 if(child.gameObject.name == "money icon")
                 {
                     child.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = platform.cost + "";
@@ -89,28 +90,29 @@ public class Shop : MonoBehaviour
         Destroy  (PlatformItemTemplate);
     }
 
-    public void BuySeed(SeedItems seed){
-            if(Global.orb >= seed.cost){
-                Global.orb -= seed.cost;
-                seed.isUnlocked = true;
-                Button button = seed.itemRef.transform.GetChild(2).gameObject.GetComponent<Button>();
-                button.interactable = false;
-                PlayerPrefs.SetInt(seed.name, button.interactable? 0 : 1);
-                button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
-            }
-    }
-
-    public void BuyPlatform(PlatformItems platform){
-        if(Global.orb >= platform.cost){
-            Global.orb -= platform.cost;
-                platform.isUnlocked = true;
-                Button button = platform.itemRef.transform.GetChild(2).gameObject.GetComponent<Button>();
-                button.interactable = false;
-                PlayerPrefs.SetInt(platform.name, button.interactable? 0 : 1);
-                button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
+    public void BuySeed(SeedItems seed)
+    {
+        if(Global.orb >= seed.cost){
+            Global.orb -= seed.cost;
+            seed.isUnlocked = true;
+            Button button = seed.itemRef.transform.GetChild(2).gameObject.GetComponent<Button>();
+            button.interactable = false;
+            PlayerPrefs.SetInt(seed.name, button.interactable? 0 : 1);
+            button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
         }
     }
 
+    public void BuyPlatform(PlatformItems platform)
+    {
+        if(Global.orb >= platform.cost){
+            Global.orb -= platform.cost;
+            platform.isUnlocked = true;
+            Button button = platform.itemRef.transform.GetChild(2).gameObject.GetComponent<Button>();
+            button.interactable = false;
+            PlayerPrefs.SetInt(platform.name, button.interactable? 0 : 1);
+            button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
+        }
+    }
 }
 
 [System.Serializable]
