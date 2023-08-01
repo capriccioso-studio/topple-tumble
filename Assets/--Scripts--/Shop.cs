@@ -13,18 +13,23 @@ public class Shop : MonoBehaviour
 
     [SerializeField] Transform SeedShopScrollView;
     [SerializeField] Transform PlatformShopScrollView;
+    
+    //Very messy code, needs cleaning up
 
-    void Start()
+    void Awake()
     {
         SeedItemTemplate = SeedShopScrollView.GetChild (0).gameObject;
         PlatformItemTemplate = PlatformShopScrollView.GetChild (0).gameObject;
 
+        /*Loops through the list of seed items*/
         foreach(SeedItems seed in seeds)
         {
             seedItem = Instantiate (SeedItemTemplate, SeedShopScrollView);
             seed.itemRef = seedItem;
             
-            foreach(Transform child in seedItem.transform){
+            /*Checks if gameobject exists, then applies the information to the seed item template*/
+            foreach(Transform child in seedItem.transform)
+            {
                 if(child.gameObject.name == "money icon")
                 {
                     child.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = seed.cost + "";
@@ -35,16 +40,27 @@ public class Shop : MonoBehaviour
                 }
             }
 
-            seedItem.transform.GetChild(2).gameObject.GetComponent<Button>().onClick.AddListener(() => {
-                BuySeed(seed);
-            });  
+            /*Checks for playerprefs if player bought object. If so, button interactable is set 
+            to false and marked already bought. Otherwise, player can buy item and then playerpref 
+            marks item as bought*/
+            Button button = seedItem.transform.GetChild(2).gameObject.GetComponent<Button>();
+            if(PlayerPrefs.GetInt(seed.name) == 1){
+                button.interactable = false;
+                button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
+            }else{
+                button.onClick.AddListener(() => {
+                    BuySeed(seed);
+                });
+            } 
         }
 
+        /*Loops through the list of platform items*/
         foreach(PlatformItems platform in platforms)
         {
             platformItem = Instantiate (PlatformItemTemplate, PlatformShopScrollView);
             platform.itemRef = platformItem;
             
+            /*Checks if gameobject exists, then applies the information to the platform item template*/
             foreach(Transform child in platformItem.transform){
                 if(child.gameObject.name == "money icon")
                 {
@@ -56,30 +72,42 @@ public class Shop : MonoBehaviour
                 }
             }
 
-            platformItem.transform.GetChild(2).gameObject.GetComponent<Button>().onClick.AddListener(() => {
-                BuyPlatform(platform);
-            });
+            /*Checks for playerprefs if player bought object. If so, button interactable is set 
+            to false and marked already bought. Otherwise, player can buy item and then playerpref 
+            marks item as bought*/
+            Button button = seedItem.transform.GetChild(2).gameObject.GetComponent<Button>();
+            if(PlayerPrefs.GetInt(platform.name) == 1){
+                button.interactable = false;
+                button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
+            }else{
+                button.onClick.AddListener(() => {
+                    BuyPlatform(platform);
+                });
+            } 
         }
-
         Destroy  (SeedItemTemplate);
         Destroy  (PlatformItemTemplate);
     }
 
     public void BuySeed(SeedItems seed){
-        if(Global.orb >= seed.cost){
-            Global.orb -= seed.cost;
-            Button button = seed.itemRef.transform.GetChild(2).gameObject.GetComponent<Button>();
-            button.interactable = false;
-            button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
-        }
+            if(Global.orb >= seed.cost){
+                Global.orb -= seed.cost;
+                seed.isUnlocked = true;
+                Button button = seed.itemRef.transform.GetChild(2).gameObject.GetComponent<Button>();
+                button.interactable = false;
+                PlayerPrefs.SetInt(seed.name, button.interactable? 0 : 1);
+                button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
+            }
     }
 
     public void BuyPlatform(PlatformItems platform){
         if(Global.orb >= platform.cost){
             Global.orb -= platform.cost;
-            Button button = platform.itemRef.transform.GetChild(2).gameObject.GetComponent<Button>();
-            button.interactable = false;
-            button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
+                platform.isUnlocked = true;
+                Button button = platform.itemRef.transform.GetChild(2).gameObject.GetComponent<Button>();
+                button.interactable = false;
+                PlayerPrefs.SetInt(platform.name, button.interactable? 0 : 1);
+                button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
         }
     }
 
@@ -89,6 +117,8 @@ public class Shop : MonoBehaviour
 public class SeedItems{
     public Sprite image;
     public int cost;
+    public string name; 
+    public bool isUnlocked;
     public SeedScriptableObject seed;
     [HideInInspector] public GameObject itemRef;
 }
@@ -97,6 +127,8 @@ public class SeedItems{
 public class PlatformItems{
     public Sprite image;
     public int cost;
+    public string name;
+    public bool isUnlocked;
     public PlatformScriptableObject platform;
     [HideInInspector] public GameObject itemRef;
 }
