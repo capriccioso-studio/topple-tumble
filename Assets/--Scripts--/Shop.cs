@@ -43,12 +43,12 @@ public class Shop : MonoBehaviour
             /*Checks for playerprefs if player bought object. If so, button interactable is set 
             to false and marked already bought. Otherwise, player can buy item and then playerpref 
             marks item as bought*/
-            Button button = seedItem.transform.GetChild(2).gameObject.GetComponent<Button>();
+            Button buttonS = seedItem.transform.GetChild(2).gameObject.GetComponent<Button>();
             if(PlayerPrefs.GetInt(seed.name) == 1){
-                button.interactable = false;
-                button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
+                buttonS.interactable = false;
+                buttonS.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
             }else{
-                button.onClick.AddListener(() => {
+                buttonS.onClick.AddListener(() => {
                     BuySeed(seed);
                 });
             } 
@@ -76,16 +76,17 @@ public class Shop : MonoBehaviour
             /*Checks for playerprefs if player bought object. If so, button interactable is set 
             to false and marked already bought. Otherwise, player can buy item and then playerpref 
             marks item as bought*/
-            Button button = seedItem.transform.GetChild(2).gameObject.GetComponent<Button>();
+            Button buttonP = seedItem.transform.GetChild(2).gameObject.GetComponent<Button>();
             if(PlayerPrefs.GetInt(platform.name) == 1){
-                button.interactable = false;
-                button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
+                buttonP.interactable = false;
+                buttonP.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
             }else{
-                button.onClick.AddListener(() => {
+                buttonP.onClick.AddListener(() => {
                     BuyPlatform(platform);
                 });
             } 
         }
+        
         Destroy  (SeedItemTemplate);
         Destroy  (PlatformItemTemplate);
     }
@@ -120,6 +121,7 @@ public class SeedItems{
     public Sprite image;
     public int cost;
     public string name; 
+    public string seedEquipped;
     public bool isUnlocked;
     public SeedScriptableObject seed;
     [HideInInspector] public GameObject itemRef;
@@ -130,6 +132,7 @@ public class PlatformItems{
     public Sprite image;
     public int cost;
     public string name;
+    public string platformEquipped;
     public bool isUnlocked;
     public PlatformScriptableObject platform;
     [HideInInspector] public GameObject itemRef;

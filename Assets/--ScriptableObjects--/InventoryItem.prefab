@@ -223,7 +223,6 @@ GameObject:
   - component: {fileID: 6752961667905439916}
   - component: {fileID: 6752961667905439914}
   - component: {fileID: 6752961667905439915}
-  - component: {fileID: 6752961667905439913}
   m_Layer: 0
   m_Name: InventoryItem
   m_TagString: Untagged
@@ -291,20 +290,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6752961667905439913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6752961667905439917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13cc3ce2ab4baf54f99d34eeeaaa554e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seed: {fileID: 11400000, guid: 63dfcd5a4f843417a814b103d47893a3, type: 2}
-  platform: {fileID: 0}
 --- !u!1 &6752961668479046829
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,7 +412,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6752961667905439913}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopItem, Assembly-CSharp
         m_MethodName: EquipSeed
         m_Mode: 1
