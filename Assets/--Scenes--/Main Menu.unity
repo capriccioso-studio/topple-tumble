@@ -2570,9 +2570,9 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -48.949997, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &253044589
 MonoBehaviour:
@@ -2964,7 +2964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &307453268
 Transform:
   m_ObjectHideFlags: 0
@@ -3838,6 +3838,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2093938873806212172, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093938873806212172, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093938873806212172, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2112939264}
+    - target: {fileID: 2093938873806212172, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093938873806212172, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093938873806212172, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Shop, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093938873806212172, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 361975254}
+    - target: {fileID: 2093938873806212172, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093938874483115514, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
+        type: 3}
+      propertyPath: m_Name
+      value: platform
+      objectReference: {fileID: 0}
     - target: {fileID: 2093938874766762770, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
         type: 3}
       propertyPath: m_fontSizeMax
@@ -3849,7 +3894,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6239779735177071849, guid: 5746ee10fe8d58946ac4d8e0d04c63a3, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5746ee10fe8d58946ac4d8e0d04c63a3, type: 3}
@@ -7294,7 +7340,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00054276566, y: -0.00057504297}
-  m_SizeDelta: {x: -0.00048828, y: 0}
+  m_SizeDelta: {x: -0.00048828, y: 266}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &664867872
 MonoBehaviour:
@@ -7636,6 +7682,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SeedShopItem
       objectReference: {fileID: 0}
+    - target: {fileID: 2093938873201975510, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2093938873201975511, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
         type: 3}
       propertyPath: m_Pivot.x
@@ -7744,18 +7795,18 @@ PrefabInstance:
     - target: {fileID: 2093938873806212172, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2093938873806212172, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2093938873806212172, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2112939264}
     - target: {fileID: 2093938873806212172, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -7764,17 +7815,42 @@ PrefabInstance:
     - target: {fileID: 2093938873806212172, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnButtonPress
+      value: BuySeed
       objectReference: {fileID: 0}
     - target: {fileID: 2093938873806212172, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ShopItem, Assembly-CSharp
+      value: Shop, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2093938873806212172, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 2050213609}
+    - target: {fileID: 2093938873806212172, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093938874483115515, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093938874483115515, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -20.192
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093938874483115515, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093938874483115515, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 10.096001
       objectReference: {fileID: 0}
     - target: {fileID: 2093938874766762770, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
         type: 3}
@@ -7791,10 +7867,16 @@ PrefabInstance:
       propertyPath: m_enableAutoSizing
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 7527172939183993956, guid: 5746ee10fe8d58946ac4d8e0d04c63a3, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 6239779735177071849, guid: 5746ee10fe8d58946ac4d8e0d04c63a3, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2093938874483115514, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1725872237}
   m_SourcePrefab: {fileID: 100100000, guid: 5746ee10fe8d58946ac4d8e0d04c63a3, type: 3}
 --- !u!224 &695023219 stripped
 RectTransform:
@@ -10271,68 +10353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa7c8f076e8630419b40342efde2a43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seeds:
-  - image: {fileID: 1550723244, guid: b6b866a85cd1a49a085e7d7e79dfb571, type: 3}
-    cost: 0
-    name: Basic
-    seedEquipped: basic
-    isUnlocked: 0
-    seed: {fileID: 11400000, guid: 63dfcd5a4f843417a814b103d47893a3, type: 2}
-    itemRef: {fileID: 0}
-  - image: {fileID: 21300000, guid: 40bd342ffc2aa31498e8fffde79a9b03, type: 3}
-    cost: 0
-    name: Nica
-    seedEquipped: nica
-    isUnlocked: 0
-    seed: {fileID: 11400000, guid: 4a821d1873b1e4999bb06c99fc3a69e3, type: 2}
-    itemRef: {fileID: 0}
-  - image: {fileID: 21300000, guid: 77dd64499598dee419b1e7d4f12dd6be, type: 3}
-    cost: 0
-    name: Floaty
-    seedEquipped: floaty
-    isUnlocked: 0
-    seed: {fileID: 0}
-    itemRef: {fileID: 0}
-  - image: {fileID: 21300000, guid: e3293d71028a76042bfc3715ae7f9b9e, type: 3}
-    cost: 0
-    name: Rock
-    seedEquipped: rock
-    isUnlocked: 0
-    seed: {fileID: 0}
-    itemRef: {fileID: 0}
-  - image: {fileID: 21300000, guid: e1f10af6441c5104b98dd2f3b417f8e1, type: 3}
-    cost: 0
-    name: Speed
-    seedEquipped: speed
-    isUnlocked: 0
-    seed: {fileID: 0}
-    itemRef: {fileID: 0}
-  - image: {fileID: 21300000, guid: fdd5b896450052b498db2d322c1fadb4, type: 3}
-    cost: 0
-    name: Sticky
-    seedEquipped: sticky
-    isUnlocked: 0
-    seed: {fileID: 0}
-    itemRef: {fileID: 0}
-  platforms:
-  - image: {fileID: 1119848758, guid: b2fe0313cb5874a8aae8def5a6b3a91b, type: 3}
-    cost: 0
-    name: Platform
-    platformEquipped: platform
-    isUnlocked: 0
-    platform: {fileID: 11400000, guid: 965b37504aba947258b3305fcdbf610d, type: 2}
-    itemRef: {fileID: 0}
-  - image: {fileID: 21300000, guid: 8f7a53580ee6f964d84a51ff93f3672a, type: 3}
-    cost: 0
-    name: Default
-    platformEquipped: default
-    isUnlocked: 0
-    platform: {fileID: 11400000, guid: 6d656006637c58f478f083109919e19c, type: 2}
-    itemRef: {fileID: 0}
-  SeedImage: {fileID: 253044589}
-  PlatformImage: {fileID: 1158237056}
-  SeedInventoryScrollView: {fileID: 664867871}
-  PlatformInventoryScrollView: {fileID: 1300699401}
 --- !u!114 &966410030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13547,7 +13567,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00054276566, y: -0.00057504297}
-  m_SizeDelta: {x: -0.00048828, y: 266}
+  m_SizeDelta: {x: -0.00048828, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1289423681
 MonoBehaviour:
@@ -14083,8 +14103,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SeedItemTemplate: {fileID: 0}
   PlatformItemTemplate: {fileID: 0}
-  seeds: []
-  platforms: []
   SeedShopScrollView: {fileID: 0}
   PlatformShopScrollView: {fileID: 0}
 --- !u!114 &1353649800
@@ -14229,6 +14247,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 965b37504aba947258b3305fcdbf610d, type: 2}
   environmentTypes:
   - {fileID: 11400000, guid: 3c6c07b6108f17544834c2ec0610594e, type: 2}
+  seedShopItems:
+  - {fileID: 11400000, guid: a700f8654b5739f4fbac4c58a2728e35, type: 2}
+  - {fileID: 11400000, guid: b34b7ddbea8bee4418b196a5fdc1ffb6, type: 2}
+  - {fileID: 11400000, guid: 1c97fb8429cdf68418fd9060e22456f0, type: 2}
+  - {fileID: 11400000, guid: 4bdbe9e0773d5bd4f83e14ec431bfe9d, type: 2}
+  - {fileID: 11400000, guid: 2aa0c00eeec9e87478083db6a69507d1, type: 2}
+  - {fileID: 11400000, guid: 9c2772e986e153a4b9db5bbea2728bda, type: 2}
+  platformShopItems:
+  - {fileID: 11400000, guid: 37155f9e5c9144d4ca28fe176ced39c8, type: 2}
+  - {fileID: 11400000, guid: 6a5cb18f49c202e499802115f53c8c17, type: 2}
 --- !u!114 &1360587570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16621,7 +16649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1637995701
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17910,6 +17938,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+--- !u!1 &1725872233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2093938874483115514, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 695023218}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1725872237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725872233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 2
+  m_AspectRatio: 1
 --- !u!1 &1732988945
 GameObject:
   m_ObjectHideFlags: 0
@@ -19112,7 +19160,7 @@ PrefabInstance:
     - target: {fileID: 6752961667077254446, guid: b586e075dc0e4214aa2a6c9559236eb9,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -45.999313
       objectReference: {fileID: 0}
     - target: {fileID: 6752961667077254446, guid: b586e075dc0e4214aa2a6c9559236eb9,
         type: 3}
@@ -23279,50 +23327,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SeedItemTemplate: {fileID: 2050213609}
   PlatformItemTemplate: {fileID: 361975254}
-  seeds:
-  - image: {fileID: 21300000, guid: 40bd342ffc2aa31498e8fffde79a9b03, type: 3}
-    cost: 100
-    name: Nica
-    seedEquipped: 
-    isUnlocked: 0
-    seed: {fileID: 11400000, guid: 4a821d1873b1e4999bb06c99fc3a69e3, type: 2}
-    itemRef: {fileID: 0}
-  - image: {fileID: 21300000, guid: 77dd64499598dee419b1e7d4f12dd6be, type: 3}
-    cost: 200
-    name: Floaty
-    seedEquipped: 
-    isUnlocked: 0
-    seed: {fileID: 0}
-    itemRef: {fileID: 0}
-  - image: {fileID: 21300000, guid: e3293d71028a76042bfc3715ae7f9b9e, type: 3}
-    cost: 150
-    name: Rock
-    seedEquipped: 
-    isUnlocked: 0
-    seed: {fileID: 0}
-    itemRef: {fileID: 0}
-  - image: {fileID: 21300000, guid: e1f10af6441c5104b98dd2f3b417f8e1, type: 3}
-    cost: 100
-    name: Speed
-    seedEquipped: 
-    isUnlocked: 0
-    seed: {fileID: 0}
-    itemRef: {fileID: 0}
-  - image: {fileID: 21300000, guid: fdd5b896450052b498db2d322c1fadb4, type: 3}
-    cost: 200
-    name: Sticky
-    seedEquipped: 
-    isUnlocked: 0
-    seed: {fileID: 0}
-    itemRef: {fileID: 0}
-  platforms:
-  - image: {fileID: 21300000, guid: 8f7a53580ee6f964d84a51ff93f3672a, type: 3}
-    cost: 200
-    name: 
-    platformEquipped: 
-    isUnlocked: 0
-    platform: {fileID: 11400000, guid: 6d656006637c58f478f083109919e19c, type: 2}
-    itemRef: {fileID: 0}
   SeedShopScrollView: {fileID: 1289423680}
   PlatformShopScrollView: {fileID: 657264032}
 --- !u!1 &2132129065

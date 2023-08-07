@@ -24,12 +24,6 @@ public class GameManager : MonoBehaviour
         StartCoroutine(LoadingScreen());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public IEnumerator LoadingScreen()
     {
 

@@ -32,8 +32,14 @@ public enum SEEDTYPE
 
 public enum PLATFORMTYPE
 {
-  basic,
-  normal,
+  basic=0,
+  normal=1,
+}
+
+public enum ITEMTYPE
+{
+  seed,
+  platform,
 }
 
 public enum ADREWARDTYPE
