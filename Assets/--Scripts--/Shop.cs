@@ -6,7 +6,7 @@ using TMPro;
 
 public class Shop : MonoBehaviour
 {
-    public GameObject SeedItemTemplate, PlatformItemTemplate; //this script duplicates the items to 15 times
+    public GameObject SeedItemTemplate, PlatformItemTemplate;
     GameObject seedItem, platformItem;
 
     [SerializeField] Transform SeedShopScrollView;
@@ -14,7 +14,7 @@ public class Shop : MonoBehaviour
     
     //Very messy code, needs cleaning up
 
-    void Awake()
+    public void Awake()
     {
         int sID=1, pID=1;
         SeedItemTemplate = SeedShopScrollView.GetChild(0).gameObject;
@@ -71,7 +71,7 @@ public class Shop : MonoBehaviour
                 }
 
                 /*Turns button off if player bought item already*/
-                if(PlayerPrefs.GetInt(platform.name) == 1){
+                if(PlayerPrefs.GetInt(platform.name) == 2){
                     Button button = platform.itemRef.transform.GetChild(2).gameObject.GetComponent<Button>();
                     button.interactable = false;
                     button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
@@ -97,12 +97,12 @@ public class Shop : MonoBehaviour
 
     public void BuyPlatform(GameObject platformItem)
     {
-        SeedShopItemsScriptableObjects platform = GameDatabase.instance.seedShopItems[int.Parse(platformItem.name)];
+        PlatformShopItemsScriptableObjects platform = GameDatabase.instance.platformShopItems[int.Parse(platformItem.name)];
         Button button = platformItem.transform.GetChild(2).gameObject.GetComponent<Button>();
         if(Global.orb >= platform.cost){
             Global.orb -= platform.cost;
             button.interactable = false;
-            PlayerPrefs.SetInt(platform.name, button.interactable? 0 : 1);
+            PlayerPrefs.SetInt(platform.name, button.interactable? 0 : 2);
             button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
         }
     }
