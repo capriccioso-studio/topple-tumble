@@ -9,7 +9,7 @@ public class PlatformShopItemsScriptableObjects : ScriptableObject
     public string itemName;
     public int cost;
     [TextArea(5,10)] public string description; 
-    public string platformEquipped;
+    public bool platformEquipped;
     public bool defaultPlatform;
     public PlatformScriptableObject platform;
 

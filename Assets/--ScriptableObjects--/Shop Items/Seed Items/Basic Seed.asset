@@ -16,8 +16,7 @@ MonoBehaviour:
   ID: 0
   cost: 0
   description: 
-  seedEquipped: 
+  seedEquipped: 1
   defaultSeed: 1
-  isUnlocked: 1
   seed: {fileID: 11400000, guid: 63dfcd5a4f843417a814b103d47893a3, type: 2}
   image: {fileID: 1550723244, guid: b6b866a85cd1a49a085e7d7e79dfb571, type: 3}

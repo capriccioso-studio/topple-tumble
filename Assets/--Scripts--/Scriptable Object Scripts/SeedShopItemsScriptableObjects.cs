@@ -10,7 +10,7 @@ public class SeedShopItemsScriptableObjects : ScriptableObject
     public int ID;
     public int cost;
     [TextArea(5,10)] public string description; 
-    public string seedEquipped;
+    public bool seedEquipped;
     public bool defaultSeed;
     public SeedScriptableObject seed;
 

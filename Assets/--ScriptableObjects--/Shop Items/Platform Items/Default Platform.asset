@@ -15,8 +15,7 @@ MonoBehaviour:
   itemName: Default
   cost: 100
   description: 
-  platformEquipped: 
+  platformEquipped: 0
   defaultPlatform: 0
   platform: {fileID: 11400000, guid: 6d656006637c58f478f083109919e19c, type: 2}
-  itemRef: {fileID: 0}
   image: {fileID: 21300000, guid: 8f7a53580ee6f964d84a51ff93f3672a, type: 3}

@@ -40,7 +40,7 @@ public class Inventory : MonoBehaviour
                 }
 
                 /*Turns button off if player equipped item already*/
-                if(PlayerPrefs.GetInt(seed.seedEquipped, 0) == 1){
+                if(seed.seedEquipped){
                     Button button = seedItem.transform.GetChild(1).gameObject.GetComponent<Button>();
                     button.interactable = false;
                     button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIPPED";
@@ -65,7 +65,7 @@ public class Inventory : MonoBehaviour
                 }
 
                 /*Turns button off if player equipped item already*/
-                if(PlayerPrefs.GetInt(platform.platformEquipped, 0) == 1){
+                if(platform.platformEquipped){
                     Button button = platformItem.transform.GetChild(1).gameObject.GetComponent<Button>();
                     button.interactable = false;
                     button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIPPED";
@@ -77,7 +77,8 @@ public class Inventory : MonoBehaviour
         Destroy(PlatformItemTemplate);
     }
 
-    public void UpdateSeedInventory(GameObject seedID){
+    public void UpdateSeedInventory(GameObject seedID)
+    {
         SeedItemTemplate = SeedInventoryScrollView.GetChild(0).gameObject;
         SeedShopItemsScriptableObjects seed = GameDatabase.instance.seedShopItems[int.Parse(seedID.name)];
 
@@ -93,16 +94,14 @@ public class Inventory : MonoBehaviour
                 }
             }
 
-            /*Turns button off if player equipped item already*/
-            if(PlayerPrefs.GetInt(seed.seedEquipped, 0) == 1){
-                Button button = seedItem.transform.GetChild(1).gameObject.GetComponent<Button>();
-                button.interactable = false;
-                button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIPPED";
-            }
+            Button button = seedItem.transform.GetChild(1).gameObject.GetComponent<Button>();
+            button.interactable = true;
+            button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIP";
         }
     }
 
-    public void UpdatePlatformInventory(GameObject platformID){
+    public void UpdatePlatformInventory(GameObject platformID)
+    {
         PlatformItemTemplate = PlatformInventoryScrollView.GetChild(0).gameObject;
         PlatformShopItemsScriptableObjects platform = GameDatabase.instance.platformShopItems[int.Parse(platformID.name)];
 
@@ -118,34 +117,65 @@ public class Inventory : MonoBehaviour
                 }
             }
 
-            /*Turns button off if player equipped item already*/
-            if(PlayerPrefs.GetInt(platform.platformEquipped, 0) == 1){
-                Button button = platformItem.transform.GetChild(1).gameObject.GetComponent<Button>();
-                button.interactable = false;
-                button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIPPED";
-            }
+            Button button = seedItem.transform.GetChild(1).gameObject.GetComponent<Button>();
+            button.interactable = true;
+            button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIP";
         }
         
     }
 
-    public void EquipSeed(GameObject seedItem){
+    public void EquipSeed(GameObject seedItem)
+    {
         SeedShopItemsScriptableObjects seed = GameDatabase.instance.seedShopItems[int.Parse(seedItem.name)];
+        Button button = seedItem.transform.GetChild(1).gameObject.GetComponent<Button>();
+
         Global.seedtype = seed.seed;
         SeedImage.GetComponent<Image>().sprite = seed.image;
-        Button button = seedItem.transform.GetChild(1).gameObject.GetComponent<Button>();
         button.interactable = false;
-        PlayerPrefs.SetInt(seed.seedEquipped, button.interactable? 0 : 1);
+        seed.seedEquipped = true;
         button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIPPED";
     }
 
-    public void EquipPlatform(GameObject platformItem){
+    public void EquipPlatform(GameObject platformItem)
+    {
         PlatformShopItemsScriptableObjects platform = GameDatabase.instance.platformShopItems[int.Parse(platformItem.name)];
+        Button button = platformItem.transform.GetChild(1).gameObject.GetComponent<Button>();
+
         Global.platformtype = platform.platform;
         PlatformImage.GetComponent<Image>().sprite = platform.image;
-        Button button = platformItem.transform.GetChild(1).gameObject.GetComponent<Button>();
         button.interactable = false;
-        PlayerPrefs.SetInt(platform.platformEquipped, button.interactable? 0 : 1);
+        platform.platformEquipped = true;
         button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIPPED";
+    }
+
+    public void DisableSeedButtons(GameObject content)
+    {
+        SeedShopItemsScriptableObjects seed;
+        foreach (Transform item in content.transform)
+        {
+            seed = GameDatabase.instance.seedShopItems[int.Parse(item.name)];
+            seed.seedEquipped = false;
+        }
+        foreach(var btn in content.GetComponentsInChildren<Button>())
+        {
+            btn.interactable = true;
+            btn.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIP";
+        }
+    }
+
+    public void DisablePlatformButtons(GameObject content)
+    {
+        PlatformShopItemsScriptableObjects platform;
+        foreach (Transform item in content.transform)
+        {
+            platform = GameDatabase.instance.platformShopItems[int.Parse(item.name)];
+            platform.platformEquipped = false;
+        }
+        foreach(var btn in content.GetComponentsInChildren<Button>())
+        {
+            btn.interactable = true;
+            btn.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIP";
+        }
     }
 
 }
