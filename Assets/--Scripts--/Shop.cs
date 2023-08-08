@@ -9,14 +9,13 @@ public class Shop : MonoBehaviour
     public GameObject SeedItemTemplate, PlatformItemTemplate;
     GameObject seedItem, platformItem;
 
+    int sID=1, pID=1;
+
     [SerializeField] Transform SeedShopScrollView;
     [SerializeField] Transform PlatformShopScrollView;
-    
-    //Very messy code, needs cleaning up
 
     public void Awake()
     {
-        int sID=1, pID=1;
         SeedItemTemplate = SeedShopScrollView.GetChild(0).gameObject;
         PlatformItemTemplate = PlatformShopScrollView.GetChild(0).gameObject;
 
@@ -26,7 +25,6 @@ public class Shop : MonoBehaviour
             if(!seed.defaultSeed)
             {
                 seedItem = Instantiate(SeedItemTemplate, SeedShopScrollView);
-                seed.itemRef = seedItem;
                 seedItem.name = sID.ToString();
                 sID++;
                 
@@ -42,7 +40,7 @@ public class Shop : MonoBehaviour
 
                 /*Turns button off if player bought item already*/
                 if(PlayerPrefs.GetInt(seed.name) == 1){
-                    Button button = seed.itemRef.transform.GetChild(2).gameObject.GetComponent<Button>();
+                    Button button = seedItem.transform.GetChild(2).gameObject.GetComponent<Button>();
                     button.interactable = false;
                     button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
                 }
@@ -56,7 +54,6 @@ public class Shop : MonoBehaviour
             if(!platform.defaultPlatform)
             {
                 platformItem = Instantiate(PlatformItemTemplate, PlatformShopScrollView);
-                platform.itemRef = platformItem;
                 platformItem.name = pID.ToString();
                 pID++;
                 
@@ -72,15 +69,15 @@ public class Shop : MonoBehaviour
 
                 /*Turns button off if player bought item already*/
                 if(PlayerPrefs.GetInt(platform.name) == 2){
-                    Button button = platform.itemRef.transform.GetChild(2).gameObject.GetComponent<Button>();
+                    Button button = platformItem.transform.GetChild(2).gameObject.GetComponent<Button>();
                     button.interactable = false;
                     button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
                 }
             }
         }
         
-        Destroy  (SeedItemTemplate);
-        Destroy  (PlatformItemTemplate);
+        Destroy(SeedItemTemplate);
+        Destroy(PlatformItemTemplate);
     }
 
     public void BuySeed(GameObject seedItem)

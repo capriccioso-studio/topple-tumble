@@ -13,7 +13,6 @@ public class SeedShopItemsScriptableObjects : ScriptableObject
     public string seedEquipped;
     public bool defaultSeed;
     public SeedScriptableObject seed;
-    [HideInInspector] public GameObject itemRef;
 
     [Header("Seed Sprites")]
     public Sprite image;

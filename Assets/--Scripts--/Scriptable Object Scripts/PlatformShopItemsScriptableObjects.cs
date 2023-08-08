@@ -12,7 +12,6 @@ public class PlatformShopItemsScriptableObjects : ScriptableObject
     public string platformEquipped;
     public bool defaultPlatform;
     public PlatformScriptableObject platform;
-    [HideInInspector] public GameObject itemRef;
 
     [Header("Platform Sprites")]
     public Sprite image;
