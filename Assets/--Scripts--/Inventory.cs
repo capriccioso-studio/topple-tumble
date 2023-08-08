@@ -117,7 +117,7 @@ public class Inventory : MonoBehaviour
                 }
             }
 
-            Button button = seedItem.transform.GetChild(1).gameObject.GetComponent<Button>();
+            Button button = platformItem.transform.GetChild(1).gameObject.GetComponent<Button>();
             button.interactable = true;
             button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIP";
         }
