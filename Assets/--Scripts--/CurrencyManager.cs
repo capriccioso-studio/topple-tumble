@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class CurrencyManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static CurrencyManager instance;
+    public const string currency = "ORB_CURRENCY";
+
+    private void Awake()
     {
-        
+        if(instance != null)
+            Destroy(this);
+        instance = this;
+
+        Global.orb = PlayerPrefs.GetInt(currency, 0);
+        Debug.Log(Global.orb);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateCurrency()
     {
-        
+        PlayerPrefs.SetInt(currency, Global.orb);
     }
 }

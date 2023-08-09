@@ -9,7 +9,7 @@ public static class Global
   public static SeedScriptableObject seedtype;
   public static GameObject seed = null, platform = null; 
   public static int score = 0;
-  public static int orb = 500;
+  public static int orb;
   public static ADREWARDTYPE adRewardType;
   public static AdManager adManager;
   public static Backend backend;

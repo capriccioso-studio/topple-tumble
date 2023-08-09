@@ -51,9 +51,8 @@ public class GameManager : MonoBehaviour
     public void ResetScene()
     {
         SceneManager.UnloadSceneAsync("GameScene");
-        Global.orb = 0;
-        if (txt_resultScore is not null)
-        txt_resultScore.SetText(0 + "");
+        txt_resultScore?.SetText(0 + "");
+        CurrencyManager.instance.UpdateCurrency();
         SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Additive);
     }
 
