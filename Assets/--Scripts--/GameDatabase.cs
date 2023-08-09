@@ -7,14 +7,14 @@ public class GameDatabase : MonoBehaviour
     public SeedScriptableObject[] seedTypes;
     public PlatformScriptableObject[] platformTypes;
     public EnvironmentScriptableObject[] environmentTypes;
-    void Start()
-    {
-        
-    }
+    public SeedShopItemsScriptableObjects[] seedShopItems;
+    public PlatformShopItemsScriptableObjects[] platformShopItems;
 
-    // Update is called once per frame
-    void Update()
+    public static GameDatabase instance;
+    private void Awake()
     {
-        
+        if(instance != null)
+            Destroy(this);
+        instance = this;
     }
 }

@@ -15,7 +15,7 @@ public class Platform : MonoBehaviour
     private PolygonCollider2D polycol2D;
     public AudioSource lBoostAudio, rBoostAudio;
     public Animator animator;
-    public CamFollow cam;
+    public CamFollow camFollow;
 
     void Start()
     {
@@ -32,8 +32,9 @@ public class Platform : MonoBehaviour
         rb2d.gravityScale = platform.gravityScale * 0.15f;
         // animator = GetComponent<Animator>();
 
-        cam = FindObjectOfType<CamFollow>();
-        cam.offset = 0;
+        Camera camera = Camera.main;
+        camFollow = camera.GetComponent<CamFollow>();
+        camFollow.offset = 0;
 
         Global.platform = this.gameObject;
     }
@@ -203,12 +204,12 @@ public class Platform : MonoBehaviour
                 Vector2 move = new Vector2(5, 7);
                 rb2d.AddForce(move, ForceMode2D.Impulse);
                 wind.Play();
-                StartCoroutine(cam.Shake(1, 1));
+                StartCoroutine(camFollow.Shake(1, 1));
             }else{
                 Vector2 move = new Vector2(-5, 7);
                 rb2d.AddForce(move, ForceMode2D.Impulse);
                 wind.Play();
-                StartCoroutine(cam.Shake(1, 1));
+                StartCoroutine(camFollow.Shake(1, 1));
             }
         }
     }

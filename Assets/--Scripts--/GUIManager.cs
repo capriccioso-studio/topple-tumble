@@ -15,6 +15,16 @@ public class GUIManager : MonoBehaviour
     [Header("Revive")]
     public TMP_Text txt_reviveCountdown;
     public AudioSource bm;
+
+    public static GUIManager instance;
+    
+    private void Awake()
+    {
+        if(instance != null)
+            Destroy(this);
+        instance = this;
+    }
+
     void Start()
     {
         ChangeGUI((int)GUISTATE.mainmenu);
@@ -175,7 +185,10 @@ public class GUIManager : MonoBehaviour
             ChangeGUI(11);
     }
 
-
+    public void Test()
+    {
+        Debug.Log("test");
+    }
 
 
     

@@ -2,29 +2,105 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Shop : MonoBehaviour
 {
-    GameObject ItemTemplate;
-    GameObject ItemTemplate2; //this script duplicates the items to 15 times
-    GameObject g;
-    GameObject h;
-    [SerializeField] Transform ShopScrollView;
-    [SerializeField] Transform ShopScrollView2;
+    public GameObject SeedItemTemplate, PlatformItemTemplate;
+    GameObject seedItem, platformItem;
 
-    void Start()
+    int sID=1, pID=1;
+
+    [SerializeField] Transform SeedShopScrollView;
+    [SerializeField] Transform PlatformShopScrollView;
+
+    public void Awake()
     {
-         ItemTemplate2 = ShopScrollView2.GetChild (0).gameObject;
+        SeedItemTemplate = SeedShopScrollView.GetChild(0).gameObject;
+        PlatformItemTemplate = PlatformShopScrollView.GetChild(0).gameObject;
 
-        ItemTemplate = ShopScrollView.GetChild (0).gameObject;
-
-        for(int i = 0; i<15; i++)
+        /*Loops through the list of seed items*/
+        foreach(SeedShopItemsScriptableObjects seed in GameDatabase.instance.seedShopItems)
         {
-            h = Instantiate (ItemTemplate2, ShopScrollView2);
-            g = Instantiate (ItemTemplate, ShopScrollView);
+            if(!seed.defaultSeed)
+            {
+                seedItem = Instantiate(SeedItemTemplate, SeedShopScrollView);
+                seedItem.name = sID.ToString();
+                sID++;
+                
+                /*Applies the information to the seed item template*/
+                foreach(Transform child in seedItem.transform)
+                {
+                    if(child.gameObject.name == "money icon"){
+                        child.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = seed.cost + "";
+                    }else if(child.gameObject.name == "seed"){
+                        child.gameObject.GetComponent<Image>().sprite = seed.image;
+                    }
+                }
+
+                /*Turns button off if player bought item already*/
+                if(PlayerPrefs.GetInt(seed.name) == 1){
+                    Button button = seedItem.transform.GetChild(2).gameObject.GetComponent<Button>();
+                    button.interactable = false;
+                    button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
+                }
+            }
+            
         }
 
-        Destroy  (ItemTemplate);
-        Destroy  (ItemTemplate2);
+        /*Loops through the list of platform items*/
+        foreach(PlatformShopItemsScriptableObjects platform in GameDatabase.instance.platformShopItems)
+        {
+            if(!platform.defaultPlatform)
+            {
+                platformItem = Instantiate(PlatformItemTemplate, PlatformShopScrollView);
+                platformItem.name = pID.ToString();
+                pID++;
+                
+                /*Applies the information to the seed item template*/
+                foreach(Transform child in platformItem.transform)
+                {
+                    if(child.gameObject.name == "money icon"){
+                        child.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = platform.cost + "";
+                    }else if(child.gameObject.name == "platform"){
+                        child.gameObject.GetComponent<Image>().sprite = platform.image;
+                    }
+                }
+
+                /*Turns button off if player bought item already*/
+                if(PlayerPrefs.GetInt(platform.name) == 2){
+                    Button button = platformItem.transform.GetChild(2).gameObject.GetComponent<Button>();
+                    button.interactable = false;
+                    button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
+                }
+            }
+        }
+        
+        Destroy(SeedItemTemplate);
+        Destroy(PlatformItemTemplate);
+    }
+
+    public void BuySeed(GameObject seedItem)
+    {
+        SeedShopItemsScriptableObjects seed = GameDatabase.instance.seedShopItems[int.Parse(seedItem.name)];
+        Button button = seedItem.transform.GetChild(2).gameObject.GetComponent<Button>();
+        if(Global.orb >= seed.cost){
+            Global.orb -= seed.cost;
+            button.interactable = false;
+            PlayerPrefs.SetInt(seed.name, button.interactable? 0 : 1);
+            button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
+        }
+    }
+
+    public void BuyPlatform(GameObject platformItem)
+    {
+        PlatformShopItemsScriptableObjects platform = GameDatabase.instance.platformShopItems[int.Parse(platformItem.name)];
+        Button button = platformItem.transform.GetChild(2).gameObject.GetComponent<Button>();
+        if(Global.orb >= platform.cost){
+            Global.orb -= platform.cost;
+            button.interactable = false;
+            PlayerPrefs.SetInt(platform.name, button.interactable? 0 : 2);
+            button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "BOUGHT";
+        }
     }
 }

@@ -11,12 +11,6 @@ public class TabScript_Inventory : MonoBehaviour
     public GameObject tabContent1;
     public GameObject tabContent2;
 
-
-    void Start()
-    {
-        
-    }
-
     public void HideAllTabs()
     {
         tabContent1.SetActive(false);

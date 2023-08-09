@@ -14,7 +14,6 @@ public class World : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         playerTransform = GameObject.FindWithTag("Player").transform;
 
         SpawnNextObstacle(12.78f);
@@ -44,7 +43,7 @@ public class World : MonoBehaviour
             // if(Random.Range(0, 100) < 50)
 
             //for testing  
-            if(Random.Range(0, 10) < 10)
+            if(Random.Range(0, 5) < 5)
             {
                 SpawnNextOrb(y);
             }

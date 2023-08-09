@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public Text score, drops;
-    void Start()
+    void Awake()
     {
         score.text = 0 + "";
     }

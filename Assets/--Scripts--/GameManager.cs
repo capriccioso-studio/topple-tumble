@@ -9,6 +9,11 @@ public class GameManager : MonoBehaviour
     public AdManager ads = null;
     private GameDatabase gameDB = null;
     public TMP_Text txt_resultScore = null;
+
+    public static GameManager instance;
+
+    public const string SEED_KEY = "seedEquip";
+    public const string PLATFORM_KEY = "platformEquip";
     
     void Awake()
     {
@@ -18,16 +23,14 @@ public class GameManager : MonoBehaviour
         
         Global.gameManager = this;
 
+        if(instance != null)
+            Destroy(this);
+        instance = this;
+
         SceneManager.LoadScene("Splash", LoadSceneMode.Additive);
         
-        InitializeGameScene(gameDB.seedTypes[0], gameDB.environmentTypes, gameDB.platformTypes[0]);
+        InitializeGameScene(gameDB);
         StartCoroutine(LoadingScreen());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public IEnumerator LoadingScreen()
@@ -40,12 +43,14 @@ public class GameManager : MonoBehaviour
         SceneManager.UnloadSceneAsync("Splash");
     }
 
-    public void InitializeGameScene(SeedScriptableObject seedtype, EnvironmentScriptableObject[] environmentType, PlatformScriptableObject platformtype)
+    public void InitializeGameScene(GameDatabase gameDB)
     {
-        Global.seedtype = seedtype;
-        Global.platformtype = platformtype;
-        Global.environmentType = environmentType;
+        int sID = PlayerPrefs.GetInt(SEED_KEY, 0);
+        int pID = PlayerPrefs.GetInt(PLATFORM_KEY, 0);
 
+        Global.seedtype = gameDB.seedShopItems[sID].seed;
+        Global.platformtype = gameDB.platformShopItems[pID].platform;
+        Global.environmentType = gameDB.environmentTypes;
     }
 
     public void LoadGameScene()
@@ -57,9 +62,8 @@ public class GameManager : MonoBehaviour
     public void ResetScene()
     {
         SceneManager.UnloadSceneAsync("GameScene");
-        Global.orb = 0;
-        if (txt_resultScore is not null)
-        txt_resultScore.SetText(0 + "");
+        txt_resultScore?.SetText(0 + "");
+        CurrencyManager.instance.UpdateCurrency();
         SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Additive);
     }
 

@@ -238,7 +238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
       propertyPath: InitialModule.startColor.minMaxState
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.ctime0
@@ -983,6 +983,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
+      propertyPath: InitialModule.startColor.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.ctime0
       value: 0
       objectReference: {fileID: 0}
@@ -1043,8 +1047,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key0.b
+      value: 0.2509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key0.g
+      value: 0.8235294
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key1.b
+      value: 0.27058825
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key1.g
+      value: 0.972549
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.m_NumColorKeys
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19874734, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.m_ColorSpace
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19910226, guid: 153f3e43b3732374b885d0cc2773ae05, type: 3}
       propertyPath: m_Materials.Array.size
@@ -6534,7 +6558,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1119848758, guid: b2fe0313cb5874a8aae8def5a6b3a91b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8f7a53580ee6f964d84a51ff93f3672a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6569,7 +6593,7 @@ MonoBehaviour:
   lBoostAudio: {fileID: 2074769615}
   rBoostAudio: {fileID: 2113106942}
   animator: {fileID: 0}
-  cam: {fileID: 0}
+  camFollow: {fileID: 0}
 --- !u!58 &1822579889
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6674,9 +6698,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 0, z: 0, w: 2.32}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.5, y: 0.93}
+    oldSize: {x: 8, y: 8}
     newSize: {x: 8, y: 8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6853,7 +6877,8 @@ AudioSource:
   m_GameObject: {fileID: 2074769612}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 871794979370081282, guid: 8b1268cc3c87ecd4c9c45384b12c4134,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 615be30fc2a9c4cc789ee384a7c3bb43, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -7154,7 +7179,8 @@ AudioSource:
   m_GameObject: {fileID: 2113106939}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 871794979370081282, guid: 8b1268cc3c87ecd4c9c45384b12c4134,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 615be30fc2a9c4cc789ee384a7c3bb43, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
