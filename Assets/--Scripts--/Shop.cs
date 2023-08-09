@@ -9,6 +9,8 @@ public class Shop : MonoBehaviour
     public GameObject SeedItemTemplate, PlatformItemTemplate;
     GameObject seedItem, platformItem;
 
+    public GameObject orb;
+
     int sID=1, pID=1;
 
     [SerializeField] Transform SeedShopScrollView;
@@ -16,6 +18,10 @@ public class Shop : MonoBehaviour
 
     public void Awake()
     {
+        /***SHOWS ORB TOTAL***/
+        orb.gameObject.GetComponent<TMP_Text>().text = Global.orb + "";
+
+        /***DISPLAYS SHOP LIST***/
         SeedItemTemplate = SeedShopScrollView.GetChild(0).gameObject;
         PlatformItemTemplate = PlatformShopScrollView.GetChild(0).gameObject;
 
