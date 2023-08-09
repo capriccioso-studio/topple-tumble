@@ -14,7 +14,6 @@ public class CurrencyManager : MonoBehaviour
         instance = this;
 
         Global.orb = PlayerPrefs.GetInt(currency, 0);
-        Debug.Log(Global.orb);
     }
 
     public void UpdateCurrency()

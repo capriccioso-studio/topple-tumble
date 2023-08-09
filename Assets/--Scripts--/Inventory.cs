@@ -133,6 +133,7 @@ public class Inventory : MonoBehaviour
         SeedImage.GetComponent<Image>().sprite = seed.image;
         button.interactable = false;
         seed.seedEquipped = true;
+        PlayerPrefs.SetInt(GameManager.SEED_KEY, int.Parse(seedItem.name));
         button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIPPED";
     }
 
@@ -145,6 +146,7 @@ public class Inventory : MonoBehaviour
         PlatformImage.GetComponent<Image>().sprite = platform.image;
         button.interactable = false;
         platform.platformEquipped = true;
+        PlayerPrefs.SetInt(GameManager.PLATFORM_KEY, int.Parse(platformItem.name));
         button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIPPED";
     }
 
