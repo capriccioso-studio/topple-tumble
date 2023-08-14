@@ -13,14 +13,10 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        if(instance == null){
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        } 
-        else 
-        {
-            Destroy(gameObject);
-        }
+        if(instance != null)
+            Destroy(this);
+        instance = this;
+        
         LoadVolume();
     }
 
