@@ -13,7 +13,7 @@ public class settingsMenu : MonoBehaviour
     public const string MIXER_MUSIC = "MusicVolume";
     public const string MIXER_SFX = "SFXVolume";
 
-    void Awake()
+    public void Awake()
     {
         musicSlider.onValueChanged.AddListener(SetMusicVolume);
         sfxSlider.onValueChanged.AddListener(SetSFXVolume);
