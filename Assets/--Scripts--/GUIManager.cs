@@ -83,7 +83,7 @@ public class GUIManager : MonoBehaviour
     {
         ResetGUI();
         guiPanels[(int)Global.guiState].SetActive(true);
-        Time.timeScale = 1;        
+        Time.timeScale = 0;        
         if(!bm.isPlaying){
             bm.Play();
         }
@@ -118,8 +118,7 @@ public class GUIManager : MonoBehaviour
     {
         ResetGUI();
         guiPanels[(int)Global.guiState].SetActive(true);
-        Time.timeScale = 0;  
-        bm.Pause();
+        Time.timeScale = 1;  
     }
     private void InventoryGUI()
     {
