@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Inventory : MonoBehaviour
+public class InventoryManagement : MonoBehaviour
 {
     public GameDatabase GD;
     public GameObject SeedItemTemplate, PlatformItemTemplate;
@@ -15,8 +15,6 @@ public class Inventory : MonoBehaviour
     public Image SeedImage, PlatformImage;
 
     [SerializeField] Transform SeedInventoryScrollView,  PlatformInventoryScrollView;
-
-    //Need to display items when buy button is clicked
 
     public void Start()
     {
@@ -46,6 +44,7 @@ public class Inventory : MonoBehaviour
                     button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIPPED";
                 }
             }
+            
         }
 
         /*Loops through the list of platform items*/
