@@ -80,7 +80,11 @@ public class GameManager : MonoBehaviour
         }
 
         if(google.connected)
+        {
             google.SubmitToLeaderboard();
+            google.GetHighScoreAchievement(Global.score);
+            google.GetOrbAchievement(Global.orb);
+        }
         
         if(Global.seed.GetComponent<Seed>().hasDied)
             gui.ChangeGUI(11);

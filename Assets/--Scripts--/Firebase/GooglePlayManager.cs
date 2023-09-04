@@ -21,15 +21,35 @@ public class GooglePlayManager : MonoBehaviour
 
     public void ShowLeaderboard()
     {
-      if(!connected){
+      if(!connected)
         PlayGamesPlatform.Instance.ManuallyAuthenticate(ProcessAuthentication);
-      }
       Social.ShowLeaderboardUI();
     }
 
     public void SubmitToLeaderboard()
     {
       Social.ReportScore(Global.score, "CgkIqcOlxe4JEAIQAA", (bool success) =>{
+        Debug.Log(success);
+      });
+    }
+
+    public void ShowAchievements()
+    {
+      if(!connected)
+        PlayGamesPlatform.Instance.ManuallyAuthenticate(ProcessAuthentication);
+      Social.ShowAchievementsUI();
+    }
+
+    public void GetHighScoreAchievement(int score)
+    {
+      Social.ReportProgress("CgkIqcOlxe4JEAIQAg", 100.0f, (bool success) => {
+        Debug.Log(success);
+      });
+    }
+
+    public void GetOrbAchievement(int orb)
+    {
+      Social.ReportProgress("CgkIqcOlxe4JEAIQAw", 100.0f, (bool success) => {
         Debug.Log(success);
       });
     }
