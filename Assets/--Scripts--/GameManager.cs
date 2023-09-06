@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public GUIManager gui = null;
     public AdManager ads = null;
+    public GooglePlayManager google;
     private GameDatabase gameDB = null;
     public TMP_Text txt_resultScore = null;
 
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
         gameDB = GetComponent<GameDatabase>();
         gui = GetComponent<GUIManager>();
         ads = GetComponent<AdManager>();
+        google = GetComponent<GooglePlayManager>();
         
         Global.gameManager = this;
 
@@ -77,7 +79,13 @@ public class GameManager : MonoBehaviour
             Global.backend.SetDBScores(Global.score, Global.orb);
         }
 
-
+        if(google.connected)
+        {
+            google.SubmitToLeaderboard();
+            google.GetHighScoreAchievement(Global.score);
+            google.GetOrbAchievement(Global.orb);
+        }
+        
         if(Global.seed.GetComponent<Seed>().hasDied)
             gui.ChangeGUI(11);
         else

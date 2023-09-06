@@ -120,7 +120,7 @@ public class Platform : MonoBehaviour
             }
             else
             {
-                lboostAmount += Time.fixedDeltaTime * (platform.acceleration * 0.1f);
+                lboostAmount += Time.fixedDeltaTime * (platform.acceleration * 0.05f);
             }
             rb2d.AddForceAtPosition(lBooster.transform.up * lboostAmount * Time.fixedDeltaTime * 100, lBooster.transform.position, ForceMode2D.Force);
             lParticles.gravityModifier = lboostAmount * 0.2f;
