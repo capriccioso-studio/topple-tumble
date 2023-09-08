@@ -25,7 +25,6 @@ public class World : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
-        
         if(playerTransform.position.y > (layerNeg4.transform.GetChild(layerNeg4.transform.childCount - 1).transform.position.y ) - (layerNeg4.transform.localScale.z * 12.78) * 0.25)
             DuplicateBackground(layerNeg4);
         if(playerTransform.position.y > (layerNeg3.transform.GetChild(layerNeg3.transform.childCount - 1).transform.position.y ) - (layerNeg3.transform.localScale.z * 12.78) * 0.25)
@@ -37,16 +36,17 @@ public class World : MonoBehaviour
         if(playerTransform.position.y > (layer1.transform.GetChild(layer1.transform.childCount - 1).transform.position.y ) - (layer1.transform.localScale.z * 12.78) * 0.5)
             DuplicateBackground(layer1);
 
+        //keeps looping SpawnNextOrb if there is no other layer above it, or no other obstacles are called
         if(playerTransform.position.y > (layer0.transform.GetChild(layer0.transform.childCount - 1).transform.position.y ) - (layer0.transform.localScale.z * 12.78) * 0.5)
         {
-            var y= layer0.transform.GetChild(layer0.transform.childCount - 1).position.y +  (layer0.transform.localScale.z * 12.78f);
-            // if(Random.Range(0, 100) < 50)
-
-            //for testing  
+            var y = layer0.transform.GetChild(layer0.transform.childCount - 1).position.y + (layer0.transform.localScale.z * 12.78f);
             if(Random.Range(0, 5) < 5)
-            {
                 SpawnNextOrb(y);
-            }
+            //for testing  
+            // if(Random.Range(0, 10) < 5)
+            // {
+                // SpawnNextOrb(y);
+            // }
 
             SpawnNextObstacle(y);
         }
@@ -80,8 +80,6 @@ public class World : MonoBehaviour
         if(playerTransform.position.y < 50 - startingBase)
         {
              InstantiateObs(easyObs, yPos);
-            //InstantiateObs(normalObs, yPos);
-            // InstantiateObs(hardObs, yPos); 
         }   
         else if(playerTransform.position.y < 150  - startingBase)
         {
@@ -120,7 +118,7 @@ public class World : MonoBehaviour
         }
         else
         {
-
+            InstantiateObs(hardObs, yPos); 
         }
     }
 

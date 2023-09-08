@@ -14235,10 +14235,6 @@ MonoBehaviour:
   seedShopItems:
   - {fileID: 11400000, guid: a700f8654b5739f4fbac4c58a2728e35, type: 2}
   - {fileID: 11400000, guid: b34b7ddbea8bee4418b196a5fdc1ffb6, type: 2}
-  - {fileID: 11400000, guid: 1c97fb8429cdf68418fd9060e22456f0, type: 2}
-  - {fileID: 11400000, guid: 4bdbe9e0773d5bd4f83e14ec431bfe9d, type: 2}
-  - {fileID: 11400000, guid: 2aa0c00eeec9e87478083db6a69507d1, type: 2}
-  - {fileID: 11400000, guid: 9c2772e986e153a4b9db5bbea2728bda, type: 2}
   platformShopItems:
   - {fileID: 11400000, guid: 37155f9e5c9144d4ca28fe176ced39c8, type: 2}
   - {fileID: 11400000, guid: 6a5cb18f49c202e499802115f53c8c17, type: 2}
