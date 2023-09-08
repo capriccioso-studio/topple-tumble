@@ -56,6 +56,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2462519950647452247, guid: 52f245ee41b00ea44af6ac33ace30262,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462519950647452247, guid: 52f245ee41b00ea44af6ac33ace30262,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462519950647452247, guid: 52f245ee41b00ea44af6ac33ace30262,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462519950647452247, guid: 52f245ee41b00ea44af6ac33ace30262,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.93
       objectReference: {fileID: 0}
@@ -104,15 +119,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -3.869
       objectReference: {fileID: 0}
+    - target: {fileID: 2462519950647452247, guid: 52f245ee41b00ea44af6ac33ace30262,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6484863695488277117, guid: 52f245ee41b00ea44af6ac33ace30262,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -4.8785844
+      value: -4.5858326
       objectReference: {fileID: 0}
     - target: {fileID: 6484863695488277117, guid: 52f245ee41b00ea44af6ac33ace30262,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 6.7092767
+      value: 6.835585
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -146,17 +166,27 @@ PrefabInstance:
     - target: {fileID: 2462519950647452247, guid: 52f245ee41b00ea44af6ac33ace30262,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: -1.1768
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462519950647452247, guid: 52f245ee41b00ea44af6ac33ace30262,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462519950647452247, guid: 52f245ee41b00ea44af6ac33ace30262,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2462519950647452247, guid: 52f245ee41b00ea44af6ac33ace30262,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.76
+      value: 3.13
       objectReference: {fileID: 0}
     - target: {fileID: 2462519950647452247, guid: 52f245ee41b00ea44af6ac33ace30262,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.11
+      value: 6.27
       objectReference: {fileID: 0}
     - target: {fileID: 2462519950647452247, guid: 52f245ee41b00ea44af6ac33ace30262,
         type: 3}
@@ -198,15 +228,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2462519950647452247, guid: 52f245ee41b00ea44af6ac33ace30262,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6484863695488277117, guid: 52f245ee41b00ea44af6ac33ace30262,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 4.6474075
+      value: 4.7338476
       objectReference: {fileID: 0}
     - target: {fileID: 6484863695488277117, guid: 52f245ee41b00ea44af6ac33ace30262,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 6.1396966
+      value: 5.4454727
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -239,13 +274,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2462519950647452247, guid: 52f245ee41b00ea44af6ac33ace30262,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462519950647452247, guid: 52f245ee41b00ea44af6ac33ace30262,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462519950647452247, guid: 52f245ee41b00ea44af6ac33ace30262,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462519950647452247, guid: 52f245ee41b00ea44af6ac33ace30262,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.66
+      value: -3.15
       objectReference: {fileID: 0}
     - target: {fileID: 2462519950647452247, guid: 52f245ee41b00ea44af6ac33ace30262,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.34
+      value: 5.13
       objectReference: {fileID: 0}
     - target: {fileID: 2462519950647452247, guid: 52f245ee41b00ea44af6ac33ace30262,
         type: 3}
@@ -287,15 +337,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2462519950647452247, guid: 52f245ee41b00ea44af6ac33ace30262,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6484863695488277117, guid: 52f245ee41b00ea44af6ac33ace30262,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -4.5474076
+      value: -4.753847
       objectReference: {fileID: 0}
     - target: {fileID: 6484863695488277117, guid: 52f245ee41b00ea44af6ac33ace30262,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 4.3696966
+      value: 4.305473
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

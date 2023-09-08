@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9859671be43c3d844bf00e6aeb8c6d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 0.1
+  mass: 0.7
   jointStrength: 75
   explodeParticle: {fileID: 8267939708736060204, guid: 9a5e344012aa94750b3bc012e0a6bf3b,
     type: 3}

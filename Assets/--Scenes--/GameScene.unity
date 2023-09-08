@@ -1112,10 +1112,20 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4717751118680847098, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4717751118721079178, guid: 09687fd495012415ba577a0047168930,
         type: 3}
       propertyPath: m_TagString
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717751119385015905, guid: 09687fd495012415ba577a0047168930,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4717751119579413733, guid: 09687fd495012415ba577a0047168930,
         type: 3}
