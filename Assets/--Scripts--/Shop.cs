@@ -89,6 +89,7 @@ public class Shop : MonoBehaviour
 
         if(Global.orb >= seed.cost){
             Global.orb -= seed.cost;
+            CurrencyManager.instance.UpdateCurrency();
             orb.GetComponent<TMP_Text>().text = Global.orb + "";
             button.interactable = false;
             PlayerPrefs.SetInt(seed.name, button.interactable? 0 : 1);
@@ -104,6 +105,7 @@ public class Shop : MonoBehaviour
 
         if(Global.orb >= platform.cost){
             Global.orb -= platform.cost;
+            CurrencyManager.instance.UpdateCurrency();
             orb.GetComponent<TMP_Text>().text = Global.orb + "";
             button.interactable = false;
             PlayerPrefs.SetInt(platform.name, button.interactable? 0 : 2);

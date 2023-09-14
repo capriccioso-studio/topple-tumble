@@ -5,7 +5,7 @@ using UnityEngine;
 public class Orb : MonoBehaviour
 {
     private Rigidbody2D rb2d;
-    public ParticleSystem pickupParticle;
+    // public ParticleSystem pickupParticle;
     public bool isPicked = false;
     
     // Start is called before the first frame update
@@ -25,8 +25,8 @@ public class Orb : MonoBehaviour
     {
 
         yield return new WaitForSeconds(delay);
-        var iExplodeParticle = Instantiate(pickupParticle, transform.position, Quaternion.identity);
-        iExplodeParticle.Play();
+        // var iExplodeParticle = Instantiate(pickupParticle, transform.position, Quaternion.identity);
+        // iExplodeParticle.Play();
         Destroy(gameObject);
 
     }
