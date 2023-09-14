@@ -4712,7 +4712,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 429, y: 810.25}
+  m_AnchoredPosition: {x: 468.09998, y: 810.25}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &466990994
@@ -4737,7 +4737,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 97feb837a84871149ae7ebea52396bdb, type: 3}
-    m_FontSize: 200
+    m_FontSize: 180
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -7919,7 +7919,7 @@ PrefabInstance:
     - target: {fileID: 2093938874483115515, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -59.81105
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2093938874483115515, guid: 5746ee10fe8d58946ac4d8e0d04c63a3,
         type: 3}
@@ -13548,7 +13548,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00054276566, y: 0.00044389084}
-  m_SizeDelta: {x: -0.00048828, y: 266}
+  m_SizeDelta: {x: -0.00048828, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1289423681
 MonoBehaviour:
@@ -14235,6 +14235,10 @@ MonoBehaviour:
   seedShopItems:
   - {fileID: 11400000, guid: a700f8654b5739f4fbac4c58a2728e35, type: 2}
   - {fileID: 11400000, guid: b34b7ddbea8bee4418b196a5fdc1ffb6, type: 2}
+  - {fileID: 11400000, guid: 1c97fb8429cdf68418fd9060e22456f0, type: 2}
+  - {fileID: 11400000, guid: 4bdbe9e0773d5bd4f83e14ec431bfe9d, type: 2}
+  - {fileID: 11400000, guid: 2aa0c00eeec9e87478083db6a69507d1, type: 2}
+  - {fileID: 11400000, guid: 9c2772e986e153a4b9db5bbea2728bda, type: 2}
   platformShopItems:
   - {fileID: 11400000, guid: 37155f9e5c9144d4ca28fe176ced39c8, type: 2}
   - {fileID: 11400000, guid: 6a5cb18f49c202e499802115f53c8c17, type: 2}
@@ -17091,7 +17095,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1637995701
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19791,6 +19795,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2112939264}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: UpdateOrb
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

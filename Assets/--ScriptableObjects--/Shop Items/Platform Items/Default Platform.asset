@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Default Platform
   m_EditorClassIdentifier: 
   itemName: Default
+  ID: 1
   cost: 100
   description: 
   platformEquipped: 0

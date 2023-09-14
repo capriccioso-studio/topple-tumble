@@ -16,8 +16,7 @@ MonoBehaviour:
   ID: 3
   cost: 200
   description: 
-  seedEquipped: 
+  seedEquipped: 0
   defaultSeed: 0
-  seed: {fileID: 0}
-  itemRef: {fileID: 0}
+  seed: {fileID: 11400000, guid: b3c0309a1ed656a4aaa07223fb42e461, type: 2}
   image: {fileID: 21300000, guid: e3293d71028a76042bfc3715ae7f9b9e, type: 3}

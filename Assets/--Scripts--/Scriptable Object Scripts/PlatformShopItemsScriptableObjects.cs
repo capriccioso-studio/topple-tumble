@@ -7,9 +7,9 @@ public class PlatformShopItemsScriptableObjects : ScriptableObject
     
     // public ITEMTYPE type;
     public string itemName;
+    public int ID;
     public int cost;
     [TextArea(5,10)] public string description; 
-    public bool platformEquipped;
     public bool defaultPlatform;
     public PlatformScriptableObject platform;
 

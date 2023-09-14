@@ -3,72 +3,52 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using GooglePlayGames.BasicApi;
 
 public class InventoryManagement : MonoBehaviour
 {
     public GameDatabase GD;
     public GameObject SeedItemTemplate, PlatformItemTemplate;
-    GameObject seedItem,platformItem;
-
-    int sID=0, pID=0;
+    GameObject seedItem, platformItem;
 
     public Image SeedImage, PlatformImage;
 
-    [SerializeField] Transform SeedInventoryScrollView,  PlatformInventoryScrollView;
+    [SerializeField] Transform SeedInventoryScrollView, PlatformInventoryScrollView;
 
-    public void Start()
+    public void Awake()
     {
-        SeedItemTemplate = SeedInventoryScrollView.GetChild (0).gameObject;
-        PlatformItemTemplate = PlatformInventoryScrollView.GetChild (0).gameObject;
+
+        /***************
+        Change the bool of seed/platform equip because boolean will not reset when clearing playerprefs or when closing Unity. Might have to use playerprefs
+        ************/
+
+        PlayerPrefs.SetInt(GD.seedShopItems[0].name, 1);
+        PlayerPrefs.SetInt(GD.platformShopItems[0].name, 2);
+
+        SeedItemTemplate = SeedInventoryScrollView.GetChild(0).gameObject;
+        PlatformItemTemplate = PlatformInventoryScrollView.GetChild(0).gameObject;
+
+        // DisableSeedButtons(SeedItemTemplate);
 
         /*Loops through the list of unlocked seed items*/
         foreach(SeedShopItemsScriptableObjects seed in GD.seedShopItems)
         {
-            if(seed.defaultSeed || PlayerPrefs.GetInt(seed.name) == 1){
+            if(PlayerPrefs.GetInt(seed.name) == 1){
                 seedItem = Instantiate(SeedItemTemplate, SeedInventoryScrollView);
-                seedItem.name = sID.ToString();
-                sID++;
+                seedItem.name = seed.ID.ToString();
                     
-                /*Applies the information to the seed item template*/
-                foreach(Transform child in seedItem.transform)
-                {
-                    if(child.gameObject.name == "seed"){
-                        child.gameObject.GetComponent<Image>().sprite = seed.image;
-                    }
-                }
-
-                /*Turns button off if player equipped item already*/
-                if(seed.seedEquipped){
-                    Button button = seedItem.transform.GetChild(1).gameObject.GetComponent<Button>();
-                    button.interactable = false;
-                    button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIPPED";
-                }
+                AddSeedItemDetails(seedItem, seed);
             }
-            
         }
 
         /*Loops through the list of platform items*/
         foreach(PlatformShopItemsScriptableObjects platform in GD.platformShopItems)
         {
-            if(platform.defaultPlatform || PlayerPrefs.GetInt(platform.name) == 2){
+            if(PlayerPrefs.GetInt(platform.name) == 2){
                 platformItem = Instantiate(PlatformItemTemplate, PlatformInventoryScrollView);
-                platformItem.name = pID.ToString();
-                pID++;
+                platformItem.name = platform.ID.ToString();
                     
-                /*Applies the information to the seed item template*/
-                foreach(Transform child in platformItem.transform)
-                {
-                    if(child.gameObject.name == "platform"){
-                        child.gameObject.GetComponent<Image>().sprite = platform.image;
-                    }
-                }
-
-                /*Turns button off if player equipped item already*/
-                if(platform.platformEquipped){
-                    Button button = platformItem.transform.GetChild(1).gameObject.GetComponent<Button>();
-                    button.interactable = false;
-                    button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIPPED";
-                }
+                AddPlatformItemDetails(platformItem, platform);
             }
         }
 
@@ -76,6 +56,39 @@ public class InventoryManagement : MonoBehaviour
         Destroy(PlatformItemTemplate);
     }
 
+
+    public void AddSeedItemDetails(GameObject seedItem, SeedShopItemsScriptableObjects seed)
+    {
+        /*Applies the information to the seed item template*/
+        seedItem.transform.GetChild(0).GetComponent<Image>().sprite = seed.image;
+
+        /*Turns button off if player equipped item already by checking the SEED KEY in Game Manager*/
+        if(seedItem.name == PlayerPrefs.GetInt(GameManager.SEED_KEY, 0).ToString()){
+            Button button = seedItem.transform.GetChild(1).GetComponent<Button>();
+            button.interactable = false;
+            button.transform.GetChild(0).GetComponent<TMP_Text>().text = "EQUIPPED";
+        }
+    }
+
+
+    public void AddPlatformItemDetails(GameObject platformItem, PlatformShopItemsScriptableObjects platform)
+    {
+        /*Applies the information to the platform item template*/
+        platformItem.transform.GetChild(0).GetComponent<Image>().sprite = platform.image;
+
+        /*Turns button off if player equipped item already by checking the PLATFORM KEY in Game Manager*/
+        if(platformItem.name == PlayerPrefs.GetInt(GameManager.PLATFORM_KEY, 0).ToString()){
+            Button button = platformItem.transform.GetChild(1).GetComponent<Button>();
+            button.interactable = false;
+            button.transform.GetChild(0).GetComponent<TMP_Text>().text = "EQUIPPED";
+        }
+    }
+
+
+    /*****
+    When updating inventory, seed is added to the end of list, only arranges itself
+    when the game restarts 
+    *****/
     public void UpdateSeedInventory(GameObject seedID)
     {
         SeedItemTemplate = SeedInventoryScrollView.GetChild(0).gameObject;
@@ -83,19 +96,13 @@ public class InventoryManagement : MonoBehaviour
 
         if(PlayerPrefs.GetInt(seed.name) == 1){
             seedItem = Instantiate(SeedItemTemplate, SeedInventoryScrollView);
-            seedItem.name = sID.ToString();
-            sID++;
+            seedItem.name = seed.ID.ToString();
 
-            foreach(Transform child in seedItem.transform)
-            {
-                if(child.gameObject.name == "seed"){
-                    child.gameObject.GetComponent<Image>().sprite = seed.image;
-                }
-            }
+            seedItem.transform.GetChild(0).GetComponent<Image>().sprite = seed.image;
 
-            Button button = seedItem.transform.GetChild(1).gameObject.GetComponent<Button>();
+            Button button = seedItem.transform.GetChild(1).GetComponent<Button>();
             button.interactable = true;
-            button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIP";
+            button.transform.GetChild(0).GetComponent<TMP_Text>().text = "EQUIP";
         }
     }
 
@@ -106,19 +113,13 @@ public class InventoryManagement : MonoBehaviour
 
         if(PlayerPrefs.GetInt(platform.name) == 2){
             platformItem = Instantiate(PlatformItemTemplate, PlatformInventoryScrollView);
-            platformItem.name = pID.ToString();
-            pID++;
+            platformItem.name = platform.ID.ToString();
 
-            foreach(Transform child in platformItem.transform)
-            {
-                if(child.gameObject.name == "platform"){
-                    child.gameObject.GetComponent<Image>().sprite = platform.image;
-                }
-            }
+            platformItem.transform.GetChild(0).GetComponent<Image>().sprite = platform.image;
 
-            Button button = platformItem.transform.GetChild(1).gameObject.GetComponent<Button>();
+            Button button = platformItem.transform.GetChild(1).GetComponent<Button>();
             button.interactable = true;
-            button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIP";
+            button.transform.GetChild(0).GetComponent<TMP_Text>().text = "EQUIP";
         }
         
     }
@@ -126,27 +127,25 @@ public class InventoryManagement : MonoBehaviour
     public void EquipSeed(GameObject seedItem)
     {
         SeedShopItemsScriptableObjects seed = GameDatabase.instance.seedShopItems[int.Parse(seedItem.name)];
-        Button button = seedItem.transform.GetChild(1).gameObject.GetComponent<Button>();
+        Button button = seedItem.transform.GetChild(1).GetComponent<Button>();
 
         Global.seedtype = seed.seed;
         SeedImage.GetComponent<Image>().sprite = seed.image;
         button.interactable = false;
-        seed.seedEquipped = true;
         PlayerPrefs.SetInt(GameManager.SEED_KEY, int.Parse(seedItem.name));
-        button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIPPED";
+        button.transform.GetChild(0).GetComponent<TMP_Text>().text = "EQUIPPED";
     }
 
     public void EquipPlatform(GameObject platformItem)
     {
         PlatformShopItemsScriptableObjects platform = GameDatabase.instance.platformShopItems[int.Parse(platformItem.name)];
-        Button button = platformItem.transform.GetChild(1).gameObject.GetComponent<Button>();
+        Button button = platformItem.transform.GetChild(1).GetComponent<Button>();
 
         Global.platformtype = platform.platform;
         PlatformImage.GetComponent<Image>().sprite = platform.image;
         button.interactable = false;
-        platform.platformEquipped = true;
         PlayerPrefs.SetInt(GameManager.PLATFORM_KEY, int.Parse(platformItem.name));
-        button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIPPED";
+        button.transform.GetChild(0).GetComponent<TMP_Text>().text = "EQUIPPED";
     }
 
     public void DisableSeedButtons(GameObject content)
@@ -155,12 +154,11 @@ public class InventoryManagement : MonoBehaviour
         foreach (Transform item in content.transform)
         {
             seed = GameDatabase.instance.seedShopItems[int.Parse(item.name)];
-            seed.seedEquipped = false;
         }
         foreach(var btn in content.GetComponentsInChildren<Button>())
         {
             btn.interactable = true;
-            btn.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIP";
+            btn.transform.GetChild(0).GetComponent<TMP_Text>().text = "EQUIP";
         }
     }
 
@@ -170,15 +168,13 @@ public class InventoryManagement : MonoBehaviour
         foreach (Transform item in content.transform)
         {
             platform = GameDatabase.instance.platformShopItems[int.Parse(item.name)];
-            platform.platformEquipped = false;
         }
         foreach(var btn in content.GetComponentsInChildren<Button>())
         {
             btn.interactable = true;
-            btn.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "EQUIP";
+            btn.transform.GetChild(0).GetComponent<TMP_Text>().text = "EQUIP";
         }
     }
-
 }
 
 

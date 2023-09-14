@@ -40,15 +40,10 @@ public class World : MonoBehaviour
         if(playerTransform.position.y > (layer0.transform.GetChild(layer0.transform.childCount - 1).transform.position.y ) - (layer0.transform.localScale.z * 12.78) * 0.5)
         {
             var y = layer0.transform.GetChild(layer0.transform.childCount - 1).position.y + (layer0.transform.localScale.z * 12.78f);
-            if(Random.Range(0, 5) < 5)
+            if(Random.Range(0, 10) < 5)
                 SpawnNextOrb(y);
-            //for testing  
-            // if(Random.Range(0, 10) < 5)
-            // {
-                // SpawnNextOrb(y);
-            // }
 
-            SpawnNextObstacle(y);
+            // SpawnNextObstacle(y);
         }
     }
 
