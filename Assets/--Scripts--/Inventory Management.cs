@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using GooglePlayGames.BasicApi;
 
 public class InventoryManagement : MonoBehaviour
 {
@@ -15,20 +14,13 @@ public class InventoryManagement : MonoBehaviour
 
     [SerializeField] Transform SeedInventoryScrollView, PlatformInventoryScrollView;
 
-    public void Awake()
+    public void DisplayItemList()
     {
-
-        /***************
-        Change the bool of seed/platform equip because boolean will not reset when clearing playerprefs or when closing Unity. Might have to use playerprefs
-        ************/
-
         PlayerPrefs.SetInt(GD.seedShopItems[0].name, 1);
         PlayerPrefs.SetInt(GD.platformShopItems[0].name, 2);
 
         SeedItemTemplate = SeedInventoryScrollView.GetChild(0).gameObject;
         PlatformItemTemplate = PlatformInventoryScrollView.GetChild(0).gameObject;
-
-        // DisableSeedButtons(SeedItemTemplate);
 
         /*Loops through the list of unlocked seed items*/
         foreach(SeedShopItemsScriptableObjects seed in GD.seedShopItems)
@@ -52,8 +44,8 @@ public class InventoryManagement : MonoBehaviour
             }
         }
 
-        Destroy(SeedItemTemplate);
-        Destroy(PlatformItemTemplate);
+        SeedItemTemplate.SetActive(false);
+        PlatformItemTemplate.SetActive(false);
     }
 
 
@@ -84,46 +76,6 @@ public class InventoryManagement : MonoBehaviour
         }
     }
 
-
-    /*****
-    When updating inventory, seed is added to the end of list, only arranges itself
-    when the game restarts 
-    *****/
-    public void UpdateSeedInventory(GameObject seedID)
-    {
-        SeedItemTemplate = SeedInventoryScrollView.GetChild(0).gameObject;
-        SeedShopItemsScriptableObjects seed = GameDatabase.instance.seedShopItems[int.Parse(seedID.name)];
-
-        if(PlayerPrefs.GetInt(seed.name) == 1){
-            seedItem = Instantiate(SeedItemTemplate, SeedInventoryScrollView);
-            seedItem.name = seed.ID.ToString();
-
-            seedItem.transform.GetChild(0).GetComponent<Image>().sprite = seed.image;
-
-            Button button = seedItem.transform.GetChild(1).GetComponent<Button>();
-            button.interactable = true;
-            button.transform.GetChild(0).GetComponent<TMP_Text>().text = "EQUIP";
-        }
-    }
-
-    public void UpdatePlatformInventory(GameObject platformID)
-    {
-        PlatformItemTemplate = PlatformInventoryScrollView.GetChild(0).gameObject;
-        PlatformShopItemsScriptableObjects platform = GameDatabase.instance.platformShopItems[int.Parse(platformID.name)];
-
-        if(PlayerPrefs.GetInt(platform.name) == 2){
-            platformItem = Instantiate(PlatformItemTemplate, PlatformInventoryScrollView);
-            platformItem.name = platform.ID.ToString();
-
-            platformItem.transform.GetChild(0).GetComponent<Image>().sprite = platform.image;
-
-            Button button = platformItem.transform.GetChild(1).GetComponent<Button>();
-            button.interactable = true;
-            button.transform.GetChild(0).GetComponent<TMP_Text>().text = "EQUIP";
-        }
-        
-    }
-
     public void EquipSeed(GameObject seedItem)
     {
         SeedShopItemsScriptableObjects seed = GameDatabase.instance.seedShopItems[int.Parse(seedItem.name)];
@@ -148,13 +100,8 @@ public class InventoryManagement : MonoBehaviour
         button.transform.GetChild(0).GetComponent<TMP_Text>().text = "EQUIPPED";
     }
 
-    public void DisableSeedButtons(GameObject content)
+    public void DisableEquipButtons(GameObject content)
     {
-        SeedShopItemsScriptableObjects seed;
-        foreach (Transform item in content.transform)
-        {
-            seed = GameDatabase.instance.seedShopItems[int.Parse(item.name)];
-        }
         foreach(var btn in content.GetComponentsInChildren<Button>())
         {
             btn.interactable = true;
@@ -162,18 +109,26 @@ public class InventoryManagement : MonoBehaviour
         }
     }
 
-    public void DisablePlatformButtons(GameObject content)
+    
+    public void ClearSeedItems(GameObject content)
     {
-        PlatformShopItemsScriptableObjects platform;
         foreach (Transform item in content.transform)
         {
-            platform = GameDatabase.instance.platformShopItems[int.Parse(item.name)];
+            if(item.gameObject.activeSelf)
+                Destroy(item.gameObject);
         }
-        foreach(var btn in content.GetComponentsInChildren<Button>())
+        SeedItemTemplate.SetActive(true);
+    }
+
+
+    public void ClearPlatformItems(GameObject content)
+    {
+        foreach (Transform item in content.transform)
         {
-            btn.interactable = true;
-            btn.transform.GetChild(0).GetComponent<TMP_Text>().text = "EQUIP";
+            if(item.gameObject.activeSelf)
+                Destroy(item.gameObject);
         }
+        PlatformItemTemplate.SetActive(true);
     }
 }
 
