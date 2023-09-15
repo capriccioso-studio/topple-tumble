@@ -35,6 +35,14 @@ public class GameManager : MonoBehaviour
         StartCoroutine(LoadingScreen());
     }
 
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
     public IEnumerator LoadingScreen()
     {
 
