@@ -17,9 +17,11 @@ public class Platform : MonoBehaviour
     public Animator animator;
     public CamFollow camFollow;
 
-    void Start()
+    void Awake()
     {
         platform = Global.platformtype;
+        Global.platform = this.gameObject;
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb2d = this.gameObject.AddComponent<Rigidbody2D>();
 
@@ -35,13 +37,12 @@ public class Platform : MonoBehaviour
         Camera camera = Camera.main;
         camFollow = camera.GetComponent<CamFollow>();
         camFollow.offset = 0;
-
-        Global.platform = this.gameObject;
     }
 
     /// <summary>
     /// This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
     /// </summary>
+    [System.Obsolete]
     void FixedUpdate()
     {
         if (Input.touchCount > 0)

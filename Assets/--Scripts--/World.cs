@@ -43,7 +43,7 @@ public class World : MonoBehaviour
             if(Random.Range(0, 10) < 5)
                 SpawnNextOrb(y);
 
-            // SpawnNextObstacle(y);
+            SpawnNextObstacle(y);
         }
     }
 

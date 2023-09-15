@@ -2523,7 +2523,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &237780942
 Transform:
   m_ObjectHideFlags: 0
@@ -5865,7 +5865,6 @@ MonoBehaviour:
   minX: -2.35
   maxX: 2.35
   offset: 0
-  start: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -19098,6 +19097,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1360587568}
         m_TargetAssemblyTypeName: 
         m_MethodName: ResetScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 519420030}
+        m_TargetAssemblyTypeName: CamFollow, Assembly-CSharp
+        m_MethodName: ResetCamera
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

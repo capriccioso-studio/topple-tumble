@@ -10,19 +10,19 @@ public class CamFollow : MonoBehaviour {
     [SerializeField] private float maxX = 10f;
     public float offset = 0;
 
-    public bool start = false;
+    public static CamFollow instance;
     
     // Update is called once per frame
-    void FixedUpdate () 
+
+    private void Awake()
     {
-        if(Global.guiState != GUISTATE.game)
-        {
-            target = null;
-        }
-        else
-        {
-            target = GameObject.Find("Platform").transform;
-        }
+        if(instance != null)
+            Destroy(this);
+        instance = this;
+    }
+    void FixedUpdate() 
+    {
+        target = (Global.guiState != GUISTATE.game)? null : Global.platform.transform;
         
         if (target != null)
         {
@@ -32,12 +32,15 @@ public class CamFollow : MonoBehaviour {
             targetPosition.x = Mathf.Clamp(targetPosition.x, minX, maxX) + offset;
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
         }
-    
+    }
+
+    public void ResetCamera()
+    {
+        Camera.main.transform.position = new Vector3(0, 1.5f, -10);
     }
 
     public IEnumerator Shake(float duration, float magnitude)
     {
-        Vector3 orignalPosition = transform.position;
         float elapsed = 0.0f;
 
         //shake
